@@ -84,12 +84,14 @@ namespace AlkoCalc
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.mdabvResult = new System.Windows.Forms.TextBox();
             this.drinksPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.calculateMDABV = new System.Windows.Forms.Button();
             this.numberOfDrinksBtn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.numberOFDrinks = new System.Windows.Forms.TextBox();
-            this.mdabvResult = new System.Windows.Forms.TextBox();
-            this.calculateMDABV = new System.Windows.Forms.Button();
+            this.notes = new System.Windows.Forms.TabPage();
+            this.newNote = new System.Windows.Forms.Button();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,6 +103,7 @@ namespace AlkoCalc
             this.startingGravityBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.notes.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -427,6 +430,7 @@ namespace AlkoCalc
             this.tabs.Controls.Add(this.tabPage1);
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage3);
+            this.tabs.Controls.Add(this.notes);
             this.tabs.Location = new System.Drawing.Point(0, 0);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -639,6 +643,14 @@ namespace AlkoCalc
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ABV of mixed drink";
             // 
+            // mdabvResult
+            // 
+            this.mdabvResult.Enabled = false;
+            this.mdabvResult.Location = new System.Drawing.Point(626, 382);
+            this.mdabvResult.Name = "mdabvResult";
+            this.mdabvResult.Size = new System.Drawing.Size(100, 20);
+            this.mdabvResult.TabIndex = 0;
+            // 
             // drinksPanel
             // 
             this.drinksPanel.AutoScroll = true;
@@ -651,10 +663,20 @@ namespace AlkoCalc
             this.drinksPanel.Location = new System.Drawing.Point(7, 60);
             this.drinksPanel.Name = "drinksPanel";
             this.drinksPanel.RowCount = 2;
-            this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.drinksPanel.Size = new System.Drawing.Size(717, 298);
             this.drinksPanel.TabIndex = 3;
+            // 
+            // calculateMDABV
+            // 
+            this.calculateMDABV.Location = new System.Drawing.Point(545, 380);
+            this.calculateMDABV.Name = "calculateMDABV";
+            this.calculateMDABV.Size = new System.Drawing.Size(75, 23);
+            this.calculateMDABV.TabIndex = 1;
+            this.calculateMDABV.Text = "Calculate";
+            this.calculateMDABV.UseVisualStyleBackColor = true;
+            this.calculateMDABV.Click += new System.EventHandler(this.calculateMDABV_Click);
             // 
             // numberOfDrinksBtn
             // 
@@ -682,23 +704,26 @@ namespace AlkoCalc
             this.numberOFDrinks.Size = new System.Drawing.Size(100, 20);
             this.numberOFDrinks.TabIndex = 0;
             // 
-            // mdabvResult
+            // notes
             // 
-            this.mdabvResult.Enabled = false;
-            this.mdabvResult.Location = new System.Drawing.Point(626, 382);
-            this.mdabvResult.Name = "mdabvResult";
-            this.mdabvResult.Size = new System.Drawing.Size(100, 20);
-            this.mdabvResult.TabIndex = 0;
+            this.notes.Controls.Add(this.newNote);
+            this.notes.Location = new System.Drawing.Point(4, 22);
+            this.notes.Name = "notes";
+            this.notes.Padding = new System.Windows.Forms.Padding(3);
+            this.notes.Size = new System.Drawing.Size(744, 425);
+            this.notes.TabIndex = 3;
+            this.notes.Text = "Notes";
+            this.notes.UseVisualStyleBackColor = true;
             // 
-            // calculateMDABV
+            // newNote
             // 
-            this.calculateMDABV.Location = new System.Drawing.Point(545, 380);
-            this.calculateMDABV.Name = "calculateMDABV";
-            this.calculateMDABV.Size = new System.Drawing.Size(75, 23);
-            this.calculateMDABV.TabIndex = 1;
-            this.calculateMDABV.Text = "Calculate";
-            this.calculateMDABV.UseVisualStyleBackColor = true;
-            this.calculateMDABV.Click += new System.EventHandler(this.calculateMDABV_Click);
+            this.newNote.Location = new System.Drawing.Point(659, 376);
+            this.newNote.Name = "newNote";
+            this.newNote.Size = new System.Drawing.Size(75, 23);
+            this.newNote.TabIndex = 0;
+            this.newNote.Text = "New note";
+            this.newNote.UseVisualStyleBackColor = true;
+            this.newNote.Click += new System.EventHandler(this.newNote_Click);
             // 
             // GUI
             // 
@@ -728,6 +753,7 @@ namespace AlkoCalc
             this.tabPage3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.notes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -795,6 +821,8 @@ namespace AlkoCalc
         private System.Windows.Forms.Button numberOfDrinksBtn;
         private System.Windows.Forms.TextBox mdabvResult;
         private System.Windows.Forms.Button calculateMDABV;
+        private System.Windows.Forms.TabPage notes;
+        private System.Windows.Forms.Button newNote;
     }
 }
 

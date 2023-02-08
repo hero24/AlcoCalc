@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System;
 
 namespace AlkoCalc
 {
@@ -8,7 +9,7 @@ namespace AlkoCalc
      */
     public partial class GUI : Form
     {
-        private const string PG_LABEL ="Previous graivty";
+        private const string PG_LABEL = "Previous graivty";
         private const string NW_LABEL = "New gravity";
         private const string ABV_VAL = "Drink ABV";
         private const string DRNKVOL = "Drink volume";
@@ -16,13 +17,17 @@ namespace AlkoCalc
         {
             OGS,
             FGS,
-            DRINKS, 
+            DRINKS,
             DRABV
         }
-        TextBox[][] fields = new TextBox[(int) FieldsIndexes.DRABV+1][];
+        private TextBox[][] fields = new TextBox[(int)FieldsIndexes.DRABV + 1][];
+        private NotesPanel notespanel;
+
         public GUI()
         {
             InitializeComponent();
+            notespanel = new NotesPanel(newNote);
+            notes.Controls.Add(notespanel);
         }
 
         private decimal getNumberFromField(TextBox box)
@@ -30,7 +35,8 @@ namespace AlkoCalc
             try
             {
                 return decimal.Parse(box.Text);
-            } catch (System.FormatException)
+            }
+            catch (System.FormatException)
             {
                 MessageBox.Show("Please input a valid number");
             }
@@ -184,7 +190,7 @@ namespace AlkoCalc
 
             decimal[][] values = populateValues((int)FieldsIndexes.OGS,
                 (int)FieldsIndexes.FGS);
-            for (int i= 0; i < values[0].Length; i++)
+            for (int i = 0; i < values[0].Length; i++)
             {
                 sg += values[fgs][i] - values[ogs][i];
                 if (sgAFloat > 0)
@@ -197,7 +203,7 @@ namespace AlkoCalc
         private void numberOfDrinksBtn_Click(object sender, System.EventArgs e)
         {
             int noOfAdditions = getIntrFromField(this.numberOFDrinks);
-            addFieldsMatrix((int) FieldsIndexes.DRINKS, (int) FieldsIndexes.DRABV,
+            addFieldsMatrix((int)FieldsIndexes.DRINKS, (int)FieldsIndexes.DRABV,
                 noOfAdditions, drinksPanel, DRNKVOL, ABV_VAL);
         }
 
@@ -208,8 +214,8 @@ namespace AlkoCalc
             decimal finalAbv;
             // values = 0 for volume, 1 for abv
             const int vol = 0, abv = 1;
-            decimal[][] values = populateValues((int) FieldsIndexes.DRINKS,
-                (int) FieldsIndexes.DRABV);
+            decimal[][] values = populateValues((int)FieldsIndexes.DRINKS,
+                (int)FieldsIndexes.DRABV);
 
             for (int i = 0; i < values[vol].Length; i++)
             {
@@ -217,7 +223,16 @@ namespace AlkoCalc
                 alcCont += (values[abv][i] / 100) * values[vol][i];
             }
             finalAbv = alcCont / volume * 100;
-            mdabvResult.Text = finalAbv.ToString(); 
+            mdabvResult.Text = finalAbv.ToString();
+        }
+        private void newNote_Click(object sender, EventArgs e)
+        {
+            notespanel.newNoteAction();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs ea)
+        {
+            notespanel.saveNotes();
         }
     }
 }
