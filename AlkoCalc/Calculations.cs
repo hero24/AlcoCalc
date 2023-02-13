@@ -9,7 +9,7 @@ namespace AlkoCalc
     interface CalculationI
     {
         decimal Calculate();
-        string GetStringResult();
+        string ToString();
     }
     interface GetWaterI: CalculationI
     {
@@ -18,7 +18,7 @@ namespace AlkoCalc
     abstract class Calculator : CalculationI
     {
         protected decimal result;
-        public string GetStringResult()
+        public override string ToString()
         {
             return result.ToString();
         }

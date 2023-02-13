@@ -66,7 +66,7 @@ namespace AlkoCalc
         private void doCalculation(CalculationI calculator, TextBox resultbox)
         {
             calculator.Calculate();
-            resultbox.Text = calculator.GetStringResult();
+            resultbox.Text = calculator.ToString();
         }
         private void calculateResult_Click(object sender, System.EventArgs e)
         {
