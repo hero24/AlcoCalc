@@ -66,6 +66,17 @@ namespace AlkoCalc
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.gravityInBox = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.convBtn = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tempResult = new System.Windows.Forms.TextBox();
+            this.tempBox = new System.Windows.Forms.TextBox();
+            this.tempGravity = new System.Windows.Forms.TextBox();
+            this.calculateTemp = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -92,6 +103,8 @@ namespace AlkoCalc
             this.numberOFDrinks = new System.Windows.Forms.TextBox();
             this.notes = new System.Windows.Forms.TabPage();
             this.newNote = new System.Windows.Forms.Button();
+            this.blgResult = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,6 +112,8 @@ namespace AlkoCalc
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.startingGravityBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -450,6 +465,8 @@ namespace AlkoCalc
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox7);
+            this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox5);
             this.tabPage2.Controls.Add(this.startingGravityBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -459,6 +476,111 @@ namespace AlkoCalc
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sugar gravity";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label22);
+            this.groupBox7.Controls.Add(this.blgResult);
+            this.groupBox7.Controls.Add(this.gravityInBox);
+            this.groupBox7.Controls.Add(this.label21);
+            this.groupBox7.Controls.Add(this.convBtn);
+            this.groupBox7.Location = new System.Drawing.Point(454, 219);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(200, 106);
+            this.groupBox7.TabIndex = 3;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Gravity to Blg";
+            // 
+            // gravityInBox
+            // 
+            this.gravityInBox.Location = new System.Drawing.Point(10, 45);
+            this.gravityInBox.Name = "gravityInBox";
+            this.gravityInBox.Size = new System.Drawing.Size(100, 20);
+            this.gravityInBox.TabIndex = 2;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(40, 13);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Gravity";
+            // 
+            // convBtn
+            // 
+            this.convBtn.Location = new System.Drawing.Point(116, 42);
+            this.convBtn.Name = "convBtn";
+            this.convBtn.Size = new System.Drawing.Size(75, 23);
+            this.convBtn.TabIndex = 0;
+            this.convBtn.Text = "Convert";
+            this.convBtn.UseVisualStyleBackColor = true;
+            this.convBtn.Click += new System.EventHandler(this.convBtn_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tempResult);
+            this.groupBox4.Controls.Add(this.tempBox);
+            this.groupBox4.Controls.Add(this.tempGravity);
+            this.groupBox4.Controls.Add(this.calculateTemp);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Location = new System.Drawing.Point(229, 218);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(200, 107);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Temperature correction";
+            // 
+            // tempResult
+            // 
+            this.tempResult.Enabled = false;
+            this.tempResult.Location = new System.Drawing.Point(92, 80);
+            this.tempResult.Name = "tempResult";
+            this.tempResult.Size = new System.Drawing.Size(100, 20);
+            this.tempResult.TabIndex = 5;
+            // 
+            // tempBox
+            // 
+            this.tempBox.Location = new System.Drawing.Point(93, 50);
+            this.tempBox.Name = "tempBox";
+            this.tempBox.Size = new System.Drawing.Size(100, 20);
+            this.tempBox.TabIndex = 4;
+            // 
+            // tempGravity
+            // 
+            this.tempGravity.Location = new System.Drawing.Point(94, 23);
+            this.tempGravity.Name = "tempGravity";
+            this.tempGravity.Size = new System.Drawing.Size(100, 20);
+            this.tempGravity.TabIndex = 3;
+            // 
+            // calculateTemp
+            // 
+            this.calculateTemp.Location = new System.Drawing.Point(6, 78);
+            this.calculateTemp.Name = "calculateTemp";
+            this.calculateTemp.Size = new System.Drawing.Size(75, 23);
+            this.calculateTemp.TabIndex = 2;
+            this.calculateTemp.Text = "Calculate";
+            this.calculateTemp.UseVisualStyleBackColor = true;
+            this.calculateTemp.Click += new System.EventHandler(this.calculateTemp_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 53);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(67, 13);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "Temperature";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 26);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Gravity";
             // 
             // groupBox5
             // 
@@ -470,7 +592,7 @@ namespace AlkoCalc
             this.groupBox5.Controls.Add(this.abvFG);
             this.groupBox5.Location = new System.Drawing.Point(3, 218);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 100);
+            this.groupBox5.Size = new System.Drawing.Size(200, 107);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ABV";
@@ -505,6 +627,7 @@ namespace AlkoCalc
             // 
             // abvResult
             // 
+            this.abvResult.Enabled = false;
             this.abvResult.Location = new System.Drawing.Point(94, 74);
             this.abvResult.Name = "abvResult";
             this.abvResult.Size = new System.Drawing.Size(100, 20);
@@ -725,6 +848,23 @@ namespace AlkoCalc
             this.newNote.UseVisualStyleBackColor = true;
             this.newNote.Click += new System.EventHandler(this.newNote_Click);
             // 
+            // blgResult
+            // 
+            this.blgResult.Enabled = false;
+            this.blgResult.Location = new System.Drawing.Point(90, 73);
+            this.blgResult.Name = "blgResult";
+            this.blgResult.Size = new System.Drawing.Size(100, 20);
+            this.blgResult.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(62, 76);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(22, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Blg";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -746,6 +886,10 @@ namespace AlkoCalc
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.startingGravityBox.ResumeLayout(false);
@@ -823,6 +967,19 @@ namespace AlkoCalc
         private System.Windows.Forms.Button calculateMDABV;
         private System.Windows.Forms.TabPage notes;
         private System.Windows.Forms.Button newNote;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button calculateTemp;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox tempResult;
+        private System.Windows.Forms.TextBox tempBox;
+        private System.Windows.Forms.TextBox tempGravity;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox gravityInBox;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button convBtn;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox blgResult;
     }
 }
 

@@ -234,5 +234,17 @@ namespace AlkoCalc
         {
             notespanel.saveNotes();
         }
+
+        private void calculateTemp_Click(object sender, EventArgs e)
+        {
+            doCalculation(new TemperatureCorrection(decimal.Parse(tempGravity.Text),
+                decimal.Parse(tempBox.Text)), tempResult);
+        }
+
+        private void convBtn_Click(object sender, EventArgs e)
+        {
+            doCalculation(new BallingConverter(decimal.Parse(gravityInBox.Text)),
+                blgResult);
+        }
     }
 }

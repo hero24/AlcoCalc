@@ -1,4 +1,6 @@
-﻿namespace AlkoCalc
+﻿using System;
+
+namespace AlkoCalc
 {
     /*
      * Give a man a beer, waste an hour. Teach a man to brew, and waste a lifetime!
@@ -94,6 +96,56 @@
         public decimal GetWater()
         {
             return total - Calculate();
+        }
+    }
+
+    class TemperatureCorrection : Calculator
+    {
+        // hydrometer calibration temperature in degrees F
+        private readonly double CALIBRATION = celciusFarenheit(20);
+        double temp;
+        decimal reading;
+        public TemperatureCorrection(decimal reading, decimal temp)
+        {
+            this.reading = reading;
+            this.temp = celciusFarenheit((double)temp);
+        }
+        public override decimal Calculate()
+        {
+            decimal t1, t2, t3;
+            decimal c1, c2, c3;
+            decimal div1, div2;
+
+            t1 = (decimal)(0.000134722124 * temp);
+            t2 = (decimal)(0.00000204052596 * Math.Pow(temp,2));
+            t3 = (decimal)(0.00000000232820948 * Math.Pow(temp, 3));
+
+            c1 = (decimal)(0.000134722124 * CALIBRATION);
+            c2 = (decimal)(0.00000204052596 * Math.Pow(CALIBRATION, 2));
+            c3 = (decimal)(0.00000000232820948 * Math.Pow(CALIBRATION, 3));
+
+            div1 = (decimal)1.00130346 - t1 + t2 - t3;
+            div2 = (decimal)1.00130346 - c1 + c2 - c3;
+            result = reading * (div1 / div2);
+            return result;
+        }
+        private static double celciusFarenheit(double celcius)
+        {
+            return (celcius * 1.8) + 32;
+        }
+    }
+
+    class BallingConverter : Calculator
+    {
+        decimal gravity;
+        public BallingConverter(decimal gravity)
+        {
+            this.gravity = gravity;
+        }
+        public override decimal Calculate()
+        {
+            result = (this.gravity - 1) / (decimal)0.004;
+            return result;
         }
     }
 }
