@@ -12,22 +12,22 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace AlkoCalc
 {
 	[Serializable()]
-	public class Notes
+	public class Notes<T>
 	{
-		public Note[] notes;
+		public T[] notes;
 		private int last = 0;
 		private int capacity = 10;
 		public Notes()
 		{
-			notes = new Note[capacity];
+			notes = new T[capacity];
 		}
 
-		public void addNote(Note note)
+		public void addNote(T note)
 		{
 			if (last >= notes.Length)
 			{
 				capacity += 5;
-				Note[] n = new Note[capacity];
+				T[] n = new T[capacity];
 				for (int i = 0; i < notes.Length; i++)
 					n[i] = notes[i];
 				notes = n;
@@ -39,17 +39,17 @@ namespace AlkoCalc
 		{
 			return last;
 		}
-		public Note getNote(int i)
+		public T getNote(int i)
 		{
 			return notes[i];
 		}
 
-		public void deleteNote(Note n)
+		public void deleteNote(T n)
         {
 			int i = 0;
 			for(; i < last; i++)
             {
-				if (notes[i] == n)
+				if (notes[i].Equals(n))
                 {
 					break;
                 }
@@ -114,7 +114,7 @@ namespace AlkoCalc
 
 		private const string NOTEFILE = "notes.bin";
 
-		private Notes noteBox;
+		private Notes<Note> noteBox;
 		private ArrayList buttons = new ArrayList();
 		NoteControls noteControls = new NoteControls();
 		Button newNote;
@@ -182,17 +182,20 @@ namespace AlkoCalc
 				{
 					Stream notesBinary = File.Open(NOTEFILE, FileMode.Open);
 					BinaryFormatter deserialize = new BinaryFormatter();
-					noteBox = (Notes)deserialize.Deserialize(notesBinary);
+					noteBox = (Notes<Note>)deserialize.Deserialize(notesBinary);
 					notesBinary.Close();
+					if (noteBox == null)
+						goto cr_new;
 				}
 				catch (Exception e)
 				{
-					//exit app?
-					//create new db?
+					goto cr_new;
 				}
 			}
 			else
-				noteBox = new Notes();
+				goto cr_new;
+			cr_new:
+				noteBox = new Notes<Note>();
 			addNotes();
 		}
 		private void addNotes()
