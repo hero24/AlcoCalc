@@ -35,7 +35,7 @@ namespace AlkoCalc
 			notes[last++] = note;
 		}
 
-		public int notesQuantity() 
+		public int notesQuantity()
 		{
 			return last;
 		}
@@ -45,21 +45,21 @@ namespace AlkoCalc
 		}
 
 		public void deleteNote(T n)
-        {
+		{
 			int i = 0;
-			for(; i < last; i++)
-            {
+			for (; i < last; i++)
+			{
 				if (notes[i].Equals(n))
-                {
+				{
 					break;
-                }
-            }
-			for(; i < last && i+1 < notes.Length; i++)
-            {
+				}
+			}
+			for (; i < last && i + 1 < notes.Length; i++)
+			{
 				notes[i] = notes[i + 1];
-            }
+			}
 			last--;
-        }
+		}
 	}
 
 	[Serializable()]
@@ -98,22 +98,19 @@ namespace AlkoCalc
 
 	}
 
-	public class NoteBox:Button
-    {
+	public class NoteBox : Button
+	{
 		public Note note;
 		public NoteBox(Note n)
-        {
+		{
 			note = n;
 			this.Text = n.title;
 			this.Width = n.title.Length * 50;
-        }
-    }
+		}
+	}
 
 	public class NotesPanel : TableLayoutPanel
-    {
-
-		private const string NOTEFILE = "notes.bin";
-
+	{
 		private Notes<Note> noteBox;
 		private ArrayList buttons = new ArrayList();
 		NoteControls noteControls = new NoteControls();
@@ -127,18 +124,19 @@ namespace AlkoCalc
 			public NoteBox delete;
 			public Button cancel;
 		}
-		public NotesPanel(Button newNote)
-        {
+		public NotesPanel(Button newNote, Notes<Note> loadedNotes)
+		{
 			initPanel();
 			initNoteControls();
-			loadNotes();
+			noteBox = loadedNotes;
 			this.newNote = newNote;
-        }
+			addNotes();
+		}
 
 		private void initPanel()
-        {
-			this.Width = 735;
-			this.Height = 329;
+		{
+			this.Width = 1064;
+			this.Height = 362;
 			this.Location = new System.Drawing.Point(6, 6);
 			this.ColumnCount = 4;
 			this.ColumnStyles.Clear();
@@ -166,38 +164,13 @@ namespace AlkoCalc
 			noteControls.contents = new TextBox();
 			noteControls.contents.Multiline = true;
 			noteControls.contents.Height = 300;
-			noteControls.contents.Width = 200;
+			noteControls.contents.Width = 500;
 			noteControls.add.Click += addNewNote;
 			noteControls.cancel = new Button();
 			noteControls.cancel.Text = "Cancel";
 			noteControls.cancel.Click += cancelNote;
 		}
 
-		private void loadNotes()
-		{
-			FileInfo notefile = new FileInfo(NOTEFILE);
-			if (notefile.Exists)
-			{
-				try
-				{
-					Stream notesBinary = File.Open(NOTEFILE, FileMode.Open);
-					BinaryFormatter deserialize = new BinaryFormatter();
-					noteBox = (Notes<Note>)deserialize.Deserialize(notesBinary);
-					notesBinary.Close();
-					if (noteBox == null)
-						goto cr_new;
-				}
-				catch (Exception e)
-				{
-					goto cr_new;
-				}
-			}
-			else
-				goto cr_new;
-			cr_new:
-				noteBox = new Notes<Note>();
-			addNotes();
-		}
 		private void addNotes()
 		{
 			for (int i = 0; i < noteBox.notesQuantity(); i++)
@@ -215,13 +188,7 @@ namespace AlkoCalc
 			for (int i = 0; i < buttons.Count; i++)
 				buttons.RemoveAt(i);
 		}
-		public void saveNotes()
-		{
-			Stream stream = File.Open(NOTEFILE, FileMode.Create);
-			BinaryFormatter formatter = new BinaryFormatter();
-			formatter.Serialize(stream, noteBox);
-			stream.Close();
-		}
+
 		private void addNoteControls()
 		{
 			this.Controls.Add(noteControls.title);

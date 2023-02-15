@@ -67,6 +67,8 @@ namespace AlkoCalc
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.blgResult = new System.Windows.Forms.TextBox();
             this.gravityInBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.convBtn = new System.Windows.Forms.Button();
@@ -103,8 +105,14 @@ namespace AlkoCalc
             this.numberOFDrinks = new System.Windows.Forms.TextBox();
             this.notes = new System.Windows.Forms.TabPage();
             this.newNote = new System.Windows.Forms.Button();
-            this.blgResult = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.projectTab = new System.Windows.Forms.TabPage();
+            this.addProject = new System.Windows.Forms.Button();
+            this.ingredientsLabel = new System.Windows.Forms.Label();
+            this.ingredientsBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.nameBox = new System.Windows.Forms.TextBox();
+            this.typeBox = new System.Windows.Forms.ListBox();
+            this.newProject = new System.Windows.Forms.Button();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,6 +127,7 @@ namespace AlkoCalc
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.notes.SuspendLayout();
+            this.projectTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -128,7 +137,7 @@ namespace AlkoCalc
             this.dilutionCalculations.Controls.Add(this.groupBox2);
             this.dilutionCalculations.Location = new System.Drawing.Point(3, 6);
             this.dilutionCalculations.Name = "dilutionCalculations";
-            this.dilutionCalculations.Size = new System.Drawing.Size(738, 198);
+            this.dilutionCalculations.Size = new System.Drawing.Size(1065, 198);
             this.dilutionCalculations.TabIndex = 0;
             this.dilutionCalculations.TabStop = false;
             this.dilutionCalculations.Text = "Dilution calculations";
@@ -446,10 +455,11 @@ namespace AlkoCalc
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage3);
             this.tabs.Controls.Add(this.notes);
+            this.tabs.Controls.Add(this.projectTab);
             this.tabs.Location = new System.Drawing.Point(0, 0);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(752, 451);
+            this.tabs.Size = new System.Drawing.Size(1084, 451);
             this.tabs.TabIndex = 1;
             // 
             // tabPage1
@@ -458,7 +468,7 @@ namespace AlkoCalc
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(744, 425);
+            this.tabPage1.Size = new System.Drawing.Size(1076, 425);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dilutions";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -472,7 +482,7 @@ namespace AlkoCalc
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(744, 425);
+            this.tabPage2.Size = new System.Drawing.Size(1076, 425);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Sugar gravity";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -490,6 +500,23 @@ namespace AlkoCalc
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Gravity to Blg";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(62, 76);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(22, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Blg";
+            // 
+            // blgResult
+            // 
+            this.blgResult.Enabled = false;
+            this.blgResult.Location = new System.Drawing.Point(90, 73);
+            this.blgResult.Name = "blgResult";
+            this.blgResult.Size = new System.Drawing.Size(100, 20);
+            this.blgResult.TabIndex = 3;
             // 
             // gravityInBox
             // 
@@ -659,7 +686,7 @@ namespace AlkoCalc
             this.startingGravityBox.Controls.Add(this.label16);
             this.startingGravityBox.Location = new System.Drawing.Point(3, 3);
             this.startingGravityBox.Name = "startingGravityBox";
-            this.startingGravityBox.Size = new System.Drawing.Size(745, 209);
+            this.startingGravityBox.Size = new System.Drawing.Size(1067, 209);
             this.startingGravityBox.TabIndex = 0;
             this.startingGravityBox.TabStop = false;
             this.startingGravityBox.Text = "Build starting gravity";
@@ -677,7 +704,7 @@ namespace AlkoCalc
             this.gravityPanel.RowCount = 2;
             this.gravityPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.gravityPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.gravityPanel.Size = new System.Drawing.Size(509, 155);
+            this.gravityPanel.Size = new System.Drawing.Size(835, 155);
             this.gravityPanel.TabIndex = 7;
             // 
             // submitNumberOfAdditions
@@ -693,14 +720,14 @@ namespace AlkoCalc
             // ssgResult
             // 
             this.ssgResult.Enabled = false;
-            this.ssgResult.Location = new System.Drawing.Point(635, 182);
+            this.ssgResult.Location = new System.Drawing.Point(961, 184);
             this.ssgResult.Name = "ssgResult";
             this.ssgResult.Size = new System.Drawing.Size(100, 20);
             this.ssgResult.TabIndex = 5;
             // 
             // calcualteSSG
             // 
-            this.calcualteSSG.Location = new System.Drawing.Point(548, 180);
+            this.calcualteSSG.Location = new System.Drawing.Point(880, 182);
             this.calcualteSSG.Name = "calcualteSSG";
             this.calcualteSSG.Size = new System.Drawing.Size(75, 23);
             this.calcualteSSG.TabIndex = 4;
@@ -746,7 +773,7 @@ namespace AlkoCalc
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(744, 425);
+            this.tabPage3.Size = new System.Drawing.Size(1076, 425);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Mixes";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -761,7 +788,7 @@ namespace AlkoCalc
             this.groupBox6.Controls.Add(this.numberOFDrinks);
             this.groupBox6.Location = new System.Drawing.Point(8, 8);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(730, 408);
+            this.groupBox6.Size = new System.Drawing.Size(1060, 408);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ABV of mixed drink";
@@ -769,7 +796,7 @@ namespace AlkoCalc
             // mdabvResult
             // 
             this.mdabvResult.Enabled = false;
-            this.mdabvResult.Location = new System.Drawing.Point(626, 382);
+            this.mdabvResult.Location = new System.Drawing.Point(954, 382);
             this.mdabvResult.Name = "mdabvResult";
             this.mdabvResult.Size = new System.Drawing.Size(100, 20);
             this.mdabvResult.TabIndex = 0;
@@ -788,12 +815,12 @@ namespace AlkoCalc
             this.drinksPanel.RowCount = 2;
             this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.drinksPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.drinksPanel.Size = new System.Drawing.Size(717, 298);
+            this.drinksPanel.Size = new System.Drawing.Size(1047, 298);
             this.drinksPanel.TabIndex = 3;
             // 
             // calculateMDABV
             // 
-            this.calculateMDABV.Location = new System.Drawing.Point(545, 380);
+            this.calculateMDABV.Location = new System.Drawing.Point(873, 382);
             this.calculateMDABV.Name = "calculateMDABV";
             this.calculateMDABV.Size = new System.Drawing.Size(75, 23);
             this.calculateMDABV.TabIndex = 1;
@@ -833,14 +860,14 @@ namespace AlkoCalc
             this.notes.Location = new System.Drawing.Point(4, 22);
             this.notes.Name = "notes";
             this.notes.Padding = new System.Windows.Forms.Padding(3);
-            this.notes.Size = new System.Drawing.Size(744, 425);
+            this.notes.Size = new System.Drawing.Size(1076, 425);
             this.notes.TabIndex = 3;
             this.notes.Text = "Notes";
             this.notes.UseVisualStyleBackColor = true;
             // 
             // newNote
             // 
-            this.newNote.Location = new System.Drawing.Point(659, 376);
+            this.newNote.Location = new System.Drawing.Point(993, 393);
             this.newNote.Name = "newNote";
             this.newNote.Size = new System.Drawing.Size(75, 23);
             this.newNote.TabIndex = 0;
@@ -848,32 +875,103 @@ namespace AlkoCalc
             this.newNote.UseVisualStyleBackColor = true;
             this.newNote.Click += new System.EventHandler(this.newNote_Click);
             // 
-            // blgResult
+            // projectTab
             // 
-            this.blgResult.Enabled = false;
-            this.blgResult.Location = new System.Drawing.Point(90, 73);
-            this.blgResult.Name = "blgResult";
-            this.blgResult.Size = new System.Drawing.Size(100, 20);
-            this.blgResult.TabIndex = 3;
+            this.projectTab.Controls.Add(this.addProject);
+            this.projectTab.Controls.Add(this.ingredientsLabel);
+            this.projectTab.Controls.Add(this.ingredientsBox);
+            this.projectTab.Controls.Add(this.nameLabel);
+            this.projectTab.Controls.Add(this.nameBox);
+            this.projectTab.Controls.Add(this.typeBox);
+            this.projectTab.Controls.Add(this.newProject);
+            this.projectTab.Location = new System.Drawing.Point(4, 22);
+            this.projectTab.Name = "projectTab";
+            this.projectTab.Padding = new System.Windows.Forms.Padding(3);
+            this.projectTab.Size = new System.Drawing.Size(1076, 425);
+            this.projectTab.TabIndex = 4;
+            this.projectTab.Text = "Projects";
+            this.projectTab.UseVisualStyleBackColor = true;
             // 
-            // label22
+            // addProject
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(62, 76);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(22, 13);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "Blg";
+            this.addProject.Location = new System.Drawing.Point(912, 393);
+            this.addProject.Name = "addProject";
+            this.addProject.Size = new System.Drawing.Size(75, 23);
+            this.addProject.TabIndex = 7;
+            this.addProject.Text = "Add project";
+            this.addProject.UseVisualStyleBackColor = true;
+            this.addProject.Visible = false;
+            this.addProject.Click += new System.EventHandler(this.addProject_Click);
+            // 
+            // ingredientsLabel
+            // 
+            this.ingredientsLabel.AutoSize = true;
+            this.ingredientsLabel.Location = new System.Drawing.Point(305, 369);
+            this.ingredientsLabel.Name = "ingredientsLabel";
+            this.ingredientsLabel.Size = new System.Drawing.Size(59, 13);
+            this.ingredientsLabel.TabIndex = 6;
+            this.ingredientsLabel.Text = "Ingredients";
+            this.ingredientsLabel.Visible = false;
+            // 
+            // ingredientsBox
+            // 
+            this.ingredientsBox.Location = new System.Drawing.Point(308, 383);
+            this.ingredientsBox.Multiline = true;
+            this.ingredientsBox.Name = "ingredientsBox";
+            this.ingredientsBox.Size = new System.Drawing.Size(598, 36);
+            this.ingredientsBox.TabIndex = 5;
+            this.ingredientsBox.Visible = false;
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(136, 374);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(35, 13);
+            this.nameLabel.TabIndex = 4;
+            this.nameLabel.Text = "Name";
+            this.nameLabel.Visible = false;
+            // 
+            // nameBox
+            // 
+            this.nameBox.Location = new System.Drawing.Point(136, 393);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(166, 20);
+            this.nameBox.TabIndex = 3;
+            this.nameBox.Visible = false;
+            // 
+            // typeBox
+            // 
+            this.typeBox.FormattingEnabled = true;
+            this.typeBox.Items.AddRange(new object[] {
+            AlkoCalc.Types.BEER,
+            AlkoCalc.Types.WINE,
+            AlkoCalc.Types.SPIRIT});
+            this.typeBox.Location = new System.Drawing.Point(9, 372);
+            this.typeBox.Name = "typeBox";
+            this.typeBox.Size = new System.Drawing.Size(120, 43);
+            this.typeBox.TabIndex = 2;
+            this.typeBox.Visible = false;
+            // 
+            // newProject
+            // 
+            this.newProject.Location = new System.Drawing.Point(993, 393);
+            this.newProject.Name = "newProject";
+            this.newProject.Size = new System.Drawing.Size(75, 23);
+            this.newProject.TabIndex = 1;
+            this.newProject.Text = "New project";
+            this.newProject.UseVisualStyleBackColor = true;
+            this.newProject.Click += new System.EventHandler(this.newProject_Click);
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 450);
+            this.ClientSize = new System.Drawing.Size(1084, 450);
             this.Controls.Add(this.tabs);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(766, 489);
-            this.MinimumSize = new System.Drawing.Size(766, 489);
+            this.MaximumSize = new System.Drawing.Size(1100, 489);
+            this.MinimumSize = new System.Drawing.Size(1100, 489);
             this.Name = "GUI";
             this.Text = "BrewKit";
             this.dilutionCalculations.ResumeLayout(false);
@@ -898,6 +996,8 @@ namespace AlkoCalc
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.notes.ResumeLayout(false);
+            this.projectTab.ResumeLayout(false);
+            this.projectTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -980,6 +1080,14 @@ namespace AlkoCalc
         private System.Windows.Forms.Button convBtn;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox blgResult;
+        private System.Windows.Forms.TabPage projectTab;
+        private System.Windows.Forms.Button newProject;
+        private System.Windows.Forms.ListBox typeBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox nameBox;
+        private System.Windows.Forms.Button addProject;
+        private System.Windows.Forms.Label ingredientsLabel;
+        private System.Windows.Forms.TextBox ingredientsBox;
     }
 }
 

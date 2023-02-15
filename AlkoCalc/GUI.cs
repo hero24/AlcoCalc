@@ -13,6 +13,7 @@ namespace AlkoCalc
         private const string NW_LABEL = "New gravity";
         private const string ABV_VAL = "Drink ABV";
         private const string DRNKVOL = "Drink volume";
+        private const string ACF_FILE = "datafile.dat";
         private enum FieldsIndexes
         {
             OGS,
@@ -22,11 +23,16 @@ namespace AlkoCalc
         }
         private TextBox[][] fields = new TextBox[(int)FieldsIndexes.DRABV + 1][];
         private NotesPanel notespanel;
+        private RecipePanel projectPanel;
+        private Filehandler filehandle;
 
         public GUI()
         {
             InitializeComponent();
-            notespanel = new NotesPanel(newNote);
+            filehandle = new Filehandler(ACF_FILE);
+            notespanel = new NotesPanel(newNote, filehandle.Notes);
+            projectPanel = new RecipePanel(filehandle.Projects);
+            projectTab.Controls.Add(projectPanel);
             notes.Controls.Add(notespanel);
         }
 
@@ -232,7 +238,7 @@ namespace AlkoCalc
 
         protected override void OnFormClosing(FormClosingEventArgs ea)
         {
-            notespanel.saveNotes();
+            filehandle.saveFile();
         }
 
         private void calculateTemp_Click(object sender, EventArgs e)
@@ -245,6 +251,33 @@ namespace AlkoCalc
         {
             doCalculation(new BallingConverter(decimal.Parse(gravityInBox.Text)),
                 blgResult);
+        }
+
+        private void toggleProjectVisibility()
+        {
+            newProject.Visible =  !newProject.Visible;
+            typeBox.Visible = !typeBox.Visible;
+            nameLabel.Visible = !nameLabel.Visible;
+            nameBox.Visible = !nameBox.Visible;
+            ingredientsLabel.Visible = !ingredientsLabel.Visible;
+            ingredientsBox.Visible = !ingredientsBox.Visible;
+            addProject.Visible = !addProject.Visible;
+        }
+
+        private void newProject_Click(object sender, EventArgs e)
+        {
+            toggleProjectVisibility();
+        }
+
+        private void addProject_Click(object sender, EventArgs e)
+        {
+            Types projectType = (Types)typeBox.SelectedIndex;
+            var name = nameBox.Text;
+            char[] splitChar =  {',', '\n' };
+            var ingredients = ingredientsBox.Text.Split(splitChar);
+            Recipe project = new Recipe(projectType, name, ingredients);
+            projectPanel.addRecipe(project);
+            toggleProjectVisibility();
         }
     }
 }
