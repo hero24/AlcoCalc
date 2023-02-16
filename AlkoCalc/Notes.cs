@@ -130,6 +130,7 @@ namespace AlkoCalc
 			initNoteControls();
 			noteBox = loadedNotes;
 			this.newNote = newNote;
+			this.AutoScroll = true;
 			addNotes();
 		}
 

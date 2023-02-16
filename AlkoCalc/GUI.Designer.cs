@@ -113,6 +113,9 @@ namespace AlkoCalc
             this.nameBox = new System.Windows.Forms.TextBox();
             this.typeBox = new System.Windows.Forms.ListBox();
             this.newProject = new System.Windows.Forms.Button();
+            this.deleteProject = new System.Windows.Forms.Button();
+            this.PrIDl = new System.Windows.Forms.Label();
+            this.PrjID = new System.Windows.Forms.TextBox();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -877,6 +880,9 @@ namespace AlkoCalc
             // 
             // projectTab
             // 
+            this.projectTab.Controls.Add(this.PrjID);
+            this.projectTab.Controls.Add(this.PrIDl);
+            this.projectTab.Controls.Add(this.deleteProject);
             this.projectTab.Controls.Add(this.addProject);
             this.projectTab.Controls.Add(this.ingredientsLabel);
             this.projectTab.Controls.Add(this.ingredientsBox);
@@ -943,7 +949,10 @@ namespace AlkoCalc
             // typeBox
             // 
             this.typeBox.FormattingEnabled = true;
-            this.typeBox.Items.AddRange(System.Enum.GetNames(typeof(Types)));
+            this.typeBox.Items.AddRange(new object[] {
+            "BEER",
+            "WINE",
+            "SPIRIT"});
             this.typeBox.Location = new System.Drawing.Point(9, 372);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(120, 43);
@@ -959,6 +968,34 @@ namespace AlkoCalc
             this.newProject.Text = "New project";
             this.newProject.UseVisualStyleBackColor = true;
             this.newProject.Click += new System.EventHandler(this.newProject_Click);
+            // 
+            // deleteProject
+            // 
+            this.deleteProject.Location = new System.Drawing.Point(993, 369);
+            this.deleteProject.Name = "deleteProject";
+            this.deleteProject.Size = new System.Drawing.Size(75, 23);
+            this.deleteProject.TabIndex = 8;
+            this.deleteProject.Text = "Delete project";
+            this.deleteProject.UseVisualStyleBackColor = true;
+            this.deleteProject.Click += new System.EventHandler(this.deleteProject_Click);
+            // 
+            // PrIDl
+            // 
+            this.PrIDl.AutoSize = true;
+            this.PrIDl.Location = new System.Drawing.Point(918, 373);
+            this.PrIDl.Name = "PrIDl";
+            this.PrIDl.Size = new System.Drawing.Size(18, 13);
+            this.PrIDl.TabIndex = 9;
+            this.PrIDl.Text = "ID";
+            this.PrIDl.Visible = false;
+            // 
+            // PrjID
+            // 
+            this.PrjID.Location = new System.Drawing.Point(942, 370);
+            this.PrjID.Name = "PrjID";
+            this.PrjID.Size = new System.Drawing.Size(45, 20);
+            this.PrjID.TabIndex = 10;
+            this.PrjID.Visible = false;
             // 
             // GUI
             // 
@@ -1085,6 +1122,9 @@ namespace AlkoCalc
         private System.Windows.Forms.Button addProject;
         private System.Windows.Forms.Label ingredientsLabel;
         private System.Windows.Forms.TextBox ingredientsBox;
+        private System.Windows.Forms.Button deleteProject;
+        private System.Windows.Forms.TextBox PrjID;
+        private System.Windows.Forms.Label PrIDl;
     }
 }
 

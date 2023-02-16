@@ -256,6 +256,7 @@ namespace AlkoCalc
         private void toggleProjectVisibility()
         {
             newProject.Visible =  !newProject.Visible;
+            deleteProject.Visible = !deleteProject.Visible;
             typeBox.Visible = !typeBox.Visible;
             nameLabel.Visible = !nameLabel.Visible;
             nameBox.Visible = !nameBox.Visible;
@@ -272,12 +273,29 @@ namespace AlkoCalc
         private void addProject_Click(object sender, EventArgs e)
         {
             Types projectType = (Types)typeBox.SelectedIndex;
+            if (projectType > Types.MEAD)
+                projectType = 0;
             var name = nameBox.Text;
             char[] splitChar =  {',', '\n' };
             var ingredients = ingredientsBox.Text.Split(splitChar);
             Recipe project = new Recipe(projectType, name, ingredients);
             projectPanel.addRecipe(project);
             toggleProjectVisibility();
+        }
+        private bool first_click_pr_dl = true;
+        private void deleteProject_Click(object sender, EventArgs e)
+        {
+    
+            PrIDl.Visible = !PrIDl.Visible;
+            PrjID.Visible = !PrjID.Visible;    
+            newProject.Visible = !newProject.Visible;
+            if(!first_click_pr_dl)
+            {
+                if (PrjID.Text == "")
+                    return;
+                projectPanel.removeProject(int.Parse(PrjID.Text));
+            }
+            first_click_pr_dl = !first_click_pr_dl;
         }
     }
 }

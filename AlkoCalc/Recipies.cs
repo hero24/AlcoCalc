@@ -2,7 +2,6 @@ using System;
 using System.Windows.Forms;
 
 // TODO: 
-// add delete option for projects
 // allow for saving single project
 //  --> need to figure saving and reading procedure.
 
@@ -285,7 +284,7 @@ namespace AlkoCalc
     public class RecipeBox: TextBox
     {
         Recipe recipe;
-        RecipeBox[] boxGroup;
+        public RecipeBox[] boxGroup;
         Recipe.Index index;
         public RecipeBox(Recipe recipe, RecipeBox[] boxes, Recipe.Index idx)
         {
@@ -333,6 +332,7 @@ namespace AlkoCalc
         {
             initPanel();
             this.projectBox = projectBox;
+            this.AutoScroll = true;
             loadFromNotes();
         }
 
@@ -395,6 +395,16 @@ namespace AlkoCalc
         {
             projectBox.addNote(recipe);
             addRecipeControls(recipe);
+        }
+        
+        public void removeProject(int id)
+        {
+            Recipe recipe = projectBox.getNote(id);
+            id += labels.Length;
+            RecipeBox box = (RecipeBox) this.Controls[id];
+            foreach (RecipeBox b in box.boxGroup)
+                this.Controls.Remove(b);
+            projectBox.deleteNote(recipe);
         }
     }
 }
