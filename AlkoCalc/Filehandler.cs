@@ -2,12 +2,14 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 namespace AlkoCalc
 {
     [Serializable()]
     public struct ACFile
     {
         public string filename;
+        public byte contents;
         public DateTime creationDate;
         public Notes<Note> notes;
         public Notes<Recipe> projects;
@@ -18,6 +20,10 @@ namespace AlkoCalc
         ACFile filemeta;
         Notes<Note> notes;
         Notes<Recipe> projects;
+        public const byte ACF_NOTES_MASK = 1;
+        public const byte ACF_PRJCT_MASK = 2;
+        public const byte ACF_ALL_FLD = ACF_PRJCT_MASK | ACF_NOTES_MASK;
+
         public Filehandler(string filename)
         {
             this.filename = filename;
@@ -39,8 +45,10 @@ namespace AlkoCalc
                     notesBinary.Close();
                     if (filemeta.filename == null)
                         goto cr_new;
-                    notes = filemeta.notes;
-                    projects = filemeta.projects;
+                    if ((filemeta.contents & ACF_NOTES_MASK) == ACF_NOTES_MASK)
+                        notes = filemeta.notes;
+                    if ((filemeta.contents & ACF_PRJCT_MASK) == ACF_PRJCT_MASK)
+                        projects = filemeta.projects;
 
                 }
                 catch (Exception e)
@@ -61,6 +69,7 @@ namespace AlkoCalc
         private void createFile()
         {
             filemeta = new ACFile();
+            filemeta.contents = ACF_ALL_FLD;
             filemeta.filename = this.filename;
             filemeta.creationDate = DateTime.Now;
             filemeta.notes = new Notes<Note>();
