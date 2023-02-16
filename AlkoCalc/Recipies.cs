@@ -12,7 +12,8 @@ namespace AlkoCalc
     {
         BEER = 0,
         WINE,
-        SPIRIT
+        SPIRIT,
+        MEAD
     }
     [Serializable()]
     public class Recipe
@@ -41,8 +42,12 @@ namespace AlkoCalc
             true, true, false, false, false, false, true, true,
             true, true, true, true, true, true, true
         };
+        public static readonly bool[] mead_states = {
+            true, true, true, true, true, true, false, false,
+            false, true, true, true, true, true, true
+        };
         public static readonly bool[][] enabled = { 
-            beer_states, wine_states, spirit_states
+            beer_states, wine_states, spirit_states, mead_states
         };
         private const short INITIAL = 10;
         private const short INCR = 5;
