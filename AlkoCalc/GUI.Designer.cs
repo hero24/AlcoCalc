@@ -949,10 +949,7 @@ namespace AlkoCalc
             // typeBox
             // 
             this.typeBox.FormattingEnabled = true;
-            this.typeBox.Items.AddRange(new object[] {
-            "BEER",
-            "WINE",
-            "SPIRIT"});
+            this.typeBox.Items.AddRange((object[])System.Enum.GetNames(typeof(Types)));
             this.typeBox.Location = new System.Drawing.Point(9, 372);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(120, 43);
