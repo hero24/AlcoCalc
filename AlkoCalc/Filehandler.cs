@@ -104,6 +104,42 @@ namespace AlkoCalc
                 fs.Close();
             }
         }
+
+        public static Notes<Recipe> openFileDialog()
+        {
+            ACFile fileContent;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "acf files (*.acf)|*.acf";
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    try
+                    {
+                        Stream notesBinary = File.Open(filePath, FileMode.Open);
+                        BinaryFormatter deserialize = new BinaryFormatter();
+                        fileContent = (ACFile)deserialize.Deserialize(notesBinary);
+                        notesBinary.Close();
+                        if ((fileContent.contents & ACF_PRJCT_MASK) == ACF_PRJCT_MASK)
+                            return fileContent.projects;
+                    }
+                    catch (Exception e)
+                    {
+                        goto nll;
+                    }
+                }
+            }
+        nll:
+            return null;
+        }
+
         private static void saveCustomFile(string filename, ACFile filemeta, Stream stream)
         {
             //Stream stream = File.Open(filename, FileMode.Create);

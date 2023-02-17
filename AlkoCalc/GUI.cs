@@ -25,6 +25,7 @@ namespace AlkoCalc
         private NotesPanel notespanel;
         private RecipePanel projectPanel;
         private Filehandler filehandle;
+        private RecipePanel openedProject;
 
         public GUI()
         {
@@ -312,6 +313,23 @@ namespace AlkoCalc
                 Filehandler.saveFileDialog(recipe);
             }
             first_click_pr_dl = !first_click_pr_dl;
+        }
+
+        private void loadPrFF_Click(object sender, EventArgs e)
+        {
+            Notes<Recipe> rec = Filehandler.openFileDialog();
+            if (rec == null)
+                return;
+            openedProject = new RecipePanel(rec);
+            openedProjectTab.Controls.Add(openedProject);
+            loadPrFF.Visible = false;
+            sprjTF.Visible = true;
+        }
+
+        private void sprjTF_Click(object sender, EventArgs e)
+        {
+            Recipe rec = openedProject.getRecipe(0);
+            Filehandler.saveFileDialog(rec);
         }
     }
 }
