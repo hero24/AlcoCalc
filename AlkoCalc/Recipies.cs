@@ -361,6 +361,11 @@ namespace AlkoCalc
             initLabels();
         }
 
+        public Recipe getRecipe(int i)
+        {
+            return projectBox.getNote(i);
+        }
+
         private void loadFromNotes()
         {
             for(int i = 0; i < projectBox.notesQuantity(); i++)

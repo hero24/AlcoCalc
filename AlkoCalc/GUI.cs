@@ -25,6 +25,7 @@ namespace AlkoCalc
         private NotesPanel notespanel;
         private RecipePanel projectPanel;
         private Filehandler filehandle;
+        private RecipePanel openedProject;
 
         public GUI()
         {
@@ -263,6 +264,7 @@ namespace AlkoCalc
             ingredientsLabel.Visible = !ingredientsLabel.Visible;
             ingredientsBox.Visible = !ingredientsBox.Visible;
             addProject.Visible = !addProject.Visible;
+            saveFile.Visible = !saveFile.Visible;
         }
 
         private void newProject_Click(object sender, EventArgs e)
@@ -289,6 +291,7 @@ namespace AlkoCalc
             PrIDl.Visible = !PrIDl.Visible;
             PrjID.Visible = !PrjID.Visible;    
             newProject.Visible = !newProject.Visible;
+            saveFile.Visible = !saveFile.Visible;
             if(!first_click_pr_dl)
             {
                 if (PrjID.Text == "")
@@ -296,6 +299,37 @@ namespace AlkoCalc
                 projectPanel.removeProject(int.Parse(PrjID.Text));
             }
             first_click_pr_dl = !first_click_pr_dl;
+        }
+
+        private void saveFile_Click(object sender, EventArgs e)
+        {
+            PrIDl.Visible = !PrIDl.Visible;
+            PrjID.Visible = !PrjID.Visible;
+            newProject.Visible = !newProject.Visible;
+            deleteProject.Visible = !saveFile.Visible;
+            if(!first_click_pr_dl)
+            {
+                Recipe recipe = projectPanel.getRecipe(int.Parse(PrjID.Text));
+                Filehandler.saveFileDialog(recipe);
+            }
+            first_click_pr_dl = !first_click_pr_dl;
+        }
+
+        private void loadPrFF_Click(object sender, EventArgs e)
+        {
+            Notes<Recipe> rec = Filehandler.openFileDialog();
+            if (rec == null)
+                return;
+            openedProject = new RecipePanel(rec);
+            openedProjectTab.Controls.Add(openedProject);
+            loadPrFF.Visible = false;
+            sprjTF.Visible = true;
+        }
+
+        private void sprjTF_Click(object sender, EventArgs e)
+        {
+            Recipe rec = openedProject.getRecipe(0);
+            Filehandler.saveFileDialog(rec);
         }
     }
 }

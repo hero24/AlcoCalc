@@ -106,6 +106,10 @@ namespace AlkoCalc
             this.notes = new System.Windows.Forms.TabPage();
             this.newNote = new System.Windows.Forms.Button();
             this.projectTab = new System.Windows.Forms.TabPage();
+            this.saveFile = new System.Windows.Forms.Button();
+            this.PrjID = new System.Windows.Forms.TextBox();
+            this.PrIDl = new System.Windows.Forms.Label();
+            this.deleteProject = new System.Windows.Forms.Button();
             this.addProject = new System.Windows.Forms.Button();
             this.ingredientsLabel = new System.Windows.Forms.Label();
             this.ingredientsBox = new System.Windows.Forms.TextBox();
@@ -113,9 +117,9 @@ namespace AlkoCalc
             this.nameBox = new System.Windows.Forms.TextBox();
             this.typeBox = new System.Windows.Forms.ListBox();
             this.newProject = new System.Windows.Forms.Button();
-            this.deleteProject = new System.Windows.Forms.Button();
-            this.PrIDl = new System.Windows.Forms.Label();
-            this.PrjID = new System.Windows.Forms.TextBox();
+            this.openedProjectTab = new System.Windows.Forms.TabPage();
+            this.loadPrFF = new System.Windows.Forms.Button();
+            this.sprjTF = new System.Windows.Forms.Button();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,6 +135,7 @@ namespace AlkoCalc
             this.groupBox6.SuspendLayout();
             this.notes.SuspendLayout();
             this.projectTab.SuspendLayout();
+            this.openedProjectTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -459,6 +464,7 @@ namespace AlkoCalc
             this.tabs.Controls.Add(this.tabPage3);
             this.tabs.Controls.Add(this.notes);
             this.tabs.Controls.Add(this.projectTab);
+            this.tabs.Controls.Add(this.openedProjectTab);
             this.tabs.Location = new System.Drawing.Point(0, 0);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -880,6 +886,7 @@ namespace AlkoCalc
             // 
             // projectTab
             // 
+            this.projectTab.Controls.Add(this.saveFile);
             this.projectTab.Controls.Add(this.PrjID);
             this.projectTab.Controls.Add(this.PrIDl);
             this.projectTab.Controls.Add(this.deleteProject);
@@ -897,6 +904,44 @@ namespace AlkoCalc
             this.projectTab.TabIndex = 4;
             this.projectTab.Text = "Projects";
             this.projectTab.UseVisualStyleBackColor = true;
+            // 
+            // saveFile
+            // 
+            this.saveFile.Location = new System.Drawing.Point(912, 393);
+            this.saveFile.Name = "saveFile";
+            this.saveFile.Size = new System.Drawing.Size(75, 23);
+            this.saveFile.TabIndex = 11;
+            this.saveFile.Text = "Save as File";
+            this.saveFile.UseVisualStyleBackColor = true;
+            this.saveFile.Click += new System.EventHandler(this.saveFile_Click);
+            // 
+            // PrjID
+            // 
+            this.PrjID.Location = new System.Drawing.Point(942, 370);
+            this.PrjID.Name = "PrjID";
+            this.PrjID.Size = new System.Drawing.Size(45, 20);
+            this.PrjID.TabIndex = 10;
+            this.PrjID.Visible = false;
+            // 
+            // PrIDl
+            // 
+            this.PrIDl.AutoSize = true;
+            this.PrIDl.Location = new System.Drawing.Point(918, 373);
+            this.PrIDl.Name = "PrIDl";
+            this.PrIDl.Size = new System.Drawing.Size(18, 13);
+            this.PrIDl.TabIndex = 9;
+            this.PrIDl.Text = "ID";
+            this.PrIDl.Visible = false;
+            // 
+            // deleteProject
+            // 
+            this.deleteProject.Location = new System.Drawing.Point(993, 369);
+            this.deleteProject.Name = "deleteProject";
+            this.deleteProject.Size = new System.Drawing.Size(75, 23);
+            this.deleteProject.TabIndex = 8;
+            this.deleteProject.Text = "Delete project";
+            this.deleteProject.UseVisualStyleBackColor = true;
+            this.deleteProject.Click += new System.EventHandler(this.deleteProject_Click);
             // 
             // addProject
             // 
@@ -949,7 +994,11 @@ namespace AlkoCalc
             // typeBox
             // 
             this.typeBox.FormattingEnabled = true;
-            this.typeBox.Items.AddRange((object[])System.Enum.GetNames(typeof(Types)));
+            this.typeBox.Items.AddRange(new object[] {
+            "BEER",
+            "WINE",
+            "SPIRIT",
+            "MEAD"});
             this.typeBox.Location = new System.Drawing.Point(9, 372);
             this.typeBox.Name = "typeBox";
             this.typeBox.Size = new System.Drawing.Size(120, 43);
@@ -966,33 +1015,38 @@ namespace AlkoCalc
             this.newProject.UseVisualStyleBackColor = true;
             this.newProject.Click += new System.EventHandler(this.newProject_Click);
             // 
-            // deleteProject
+            // openedProjectTab
             // 
-            this.deleteProject.Location = new System.Drawing.Point(993, 369);
-            this.deleteProject.Name = "deleteProject";
-            this.deleteProject.Size = new System.Drawing.Size(75, 23);
-            this.deleteProject.TabIndex = 8;
-            this.deleteProject.Text = "Delete project";
-            this.deleteProject.UseVisualStyleBackColor = true;
-            this.deleteProject.Click += new System.EventHandler(this.deleteProject_Click);
+            this.openedProjectTab.Controls.Add(this.sprjTF);
+            this.openedProjectTab.Controls.Add(this.loadPrFF);
+            this.openedProjectTab.Location = new System.Drawing.Point(4, 22);
+            this.openedProjectTab.Name = "openedProjectTab";
+            this.openedProjectTab.Padding = new System.Windows.Forms.Padding(3);
+            this.openedProjectTab.Size = new System.Drawing.Size(1076, 425);
+            this.openedProjectTab.TabIndex = 5;
+            this.openedProjectTab.Text = "Open project";
+            this.openedProjectTab.UseVisualStyleBackColor = true;
             // 
-            // PrIDl
+            // loadPrFF
             // 
-            this.PrIDl.AutoSize = true;
-            this.PrIDl.Location = new System.Drawing.Point(918, 373);
-            this.PrIDl.Name = "PrIDl";
-            this.PrIDl.Size = new System.Drawing.Size(18, 13);
-            this.PrIDl.TabIndex = 9;
-            this.PrIDl.Text = "ID";
-            this.PrIDl.Visible = false;
+            this.loadPrFF.Location = new System.Drawing.Point(909, 393);
+            this.loadPrFF.Name = "loadPrFF";
+            this.loadPrFF.Size = new System.Drawing.Size(159, 23);
+            this.loadPrFF.TabIndex = 0;
+            this.loadPrFF.Text = "Load project from file";
+            this.loadPrFF.UseVisualStyleBackColor = true;
+            this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
             // 
-            // PrjID
+            // sprjTF
             // 
-            this.PrjID.Location = new System.Drawing.Point(942, 370);
-            this.PrjID.Name = "PrjID";
-            this.PrjID.Size = new System.Drawing.Size(45, 20);
-            this.PrjID.TabIndex = 10;
-            this.PrjID.Visible = false;
+            this.sprjTF.Location = new System.Drawing.Point(909, 393);
+            this.sprjTF.Name = "sprjTF";
+            this.sprjTF.Size = new System.Drawing.Size(158, 23);
+            this.sprjTF.TabIndex = 1;
+            this.sprjTF.Text = "Save project to File";
+            this.sprjTF.UseVisualStyleBackColor = true;
+            this.sprjTF.Visible = false;
+            this.sprjTF.Click += new System.EventHandler(this.sprjTF_Click);
             // 
             // GUI
             // 
@@ -1029,6 +1083,7 @@ namespace AlkoCalc
             this.notes.ResumeLayout(false);
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
+            this.openedProjectTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1122,6 +1177,10 @@ namespace AlkoCalc
         private System.Windows.Forms.Button deleteProject;
         private System.Windows.Forms.TextBox PrjID;
         private System.Windows.Forms.Label PrIDl;
+        private System.Windows.Forms.Button saveFile;
+        private System.Windows.Forms.TabPage openedProjectTab;
+        private System.Windows.Forms.Button loadPrFF;
+        private System.Windows.Forms.Button sprjTF;
     }
 }
 
