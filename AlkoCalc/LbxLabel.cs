@@ -29,28 +29,53 @@ namespace AlkoCalc
         private readonly string[] TEMPLATES = { 
             "beerstamp.aclf" 
         };
-
+        
+        [NonSerialized()]
         private XmlDocument label_xml;
+        [NonSerialized()]
         private XmlDocument prop_xml;
+
+        public string ser_label;
+        public string ser_prop;
         private Image Object0;
 
-        public XmlDocument LX { get { return label_xml; } }
-        public XmlDocument PX {  get { return prop_xml; } }
+        public string LX { 
+            get { return label_xml.OuterXml; } 
+            set
+            {
+                ser_label = value;
+                label_xml = new XmlDocument();
+                label_xml.LoadXml(ser_label);
+            }
+        }
+        public string PX {  
+            get { return prop_xml.OuterXml; }
+            set
+            {
+                ser_prop = value;
+                prop_xml = new XmlDocument();
+                prop_xml.LoadXml(ser_prop);
+            }
+        }
         public Image I { get { return Object0; } }
         public LbxLabel(string lbx_path)
         {
             ZipArchive lbxfile;
             lbxfile = ZipFile.Open(lbx_path, ZipArchiveMode.Read);
-            lbxfile.GetEntry(LABEL_XML);
             label_xml = new XmlDocument();
             prop_xml = new XmlDocument();
 
             label_xml.Load(lbxfile.GetEntry(LABEL_XML).Open());
             prop_xml.Load(lbxfile.GetEntry(PROP_XML).Open());
             //image handling
-            Stream img_stream = lbxfile.GetEntry(IMAGE_FL).Open();
-            if (img_stream != null)
+            ZipArchiveEntry img = lbxfile.GetEntry(IMAGE_FL);
+            if (img != null)
+            {
+                Stream img_stream = img.Open();
                 Object0 = Image.FromStream(img_stream);
+            }
+            ser_label = label_xml.OuterXml;
+            ser_prop = prop_xml.OuterXml;
         }
 
         public LbxLabel() { }
@@ -61,7 +86,7 @@ namespace AlkoCalc
             this.loadTemplate(TEMPLATES[(int)type]);
             this.Title = title;
             perc = abv.ToString("0.00");
-            this.Abv = "${perc}%";
+            this.Abv = $"{perc}%";
         }
 
         public void loadTemplate(string template)
@@ -71,13 +96,14 @@ namespace AlkoCalc
             BinaryFormatter deserialize = new BinaryFormatter();
             lbx = (LbxLabel)deserialize.Deserialize(thisBinary);
             thisBinary.Close();
-            this.label_xml = lbx.LX;
-            this.prop_xml = lbx.PX;
+            this.LX = lbx.ser_label;
+            this.PX = lbx.ser_prop;
             this.Object0 = lbx.I;
         }
 
         public static void generateTemplate(LbxLabel label, string templateName)
         {
+
             Stream stream = File.Open(templateName, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, label);
@@ -90,16 +116,17 @@ namespace AlkoCalc
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create))
                 {
                     var lbl_xml = archive.CreateEntry(LABEL_XML);
-                    var prp_xml = archive.CreateEntry(PROP_XML);
                     using (var entryStream = lbl_xml.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
-                        streamWriter.Write(label_xml);
+                        streamWriter.Write(label_xml.OuterXml);
                     }
-                    using(var entryStream = prp_xml.Open())
+
+                    var prp_xml = archive.CreateEntry(PROP_XML);
+                    using (var entryStream = prp_xml.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
-                        streamWriter.Write(prop_xml);
+                        streamWriter.Write(prop_xml.OuterXml);
                     }
                     if (Object0 != null)
                     {
@@ -150,7 +177,7 @@ namespace AlkoCalc
             XmlNodeList datalist = label_xml.GetElementsByTagName("pt:data");
             XmlNode data = datalist.Item(0);
             string text = data.InnerText;
-            text.Replace(old, new_);
+            text = text.Replace(old, new_);
             data.InnerText = text;
         }
     }
