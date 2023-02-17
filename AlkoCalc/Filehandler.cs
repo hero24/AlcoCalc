@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.Windows.Forms;
 
 namespace AlkoCalc
 {
@@ -80,7 +80,7 @@ namespace AlkoCalc
         {
             saveCustomFile(this.filename, this.filemeta);
         }
-        private void saveCustomFile(string filename, ACFile filemeta)
+        private static void saveCustomFile(string filename, ACFile filemeta)
         {
             Stream stream = File.Open(filename, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
@@ -88,15 +88,38 @@ namespace AlkoCalc
             stream.Close();
         }
 
-        public void saveSingleProject(Recipe recipe)
+        public static void saveFileDialog(Recipe recipe)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "ACF file|*.acf";
+            saveFileDialog1.Title = "Save an recipe File";
+            saveFileDialog1.ShowDialog();
+
+            // If the file name is not an empty string open it for saving.
+            if (saveFileDialog1.FileName != "")
+            {
+                System.IO.FileStream fs =
+                    (System.IO.FileStream)saveFileDialog1.OpenFile();
+                saveSingleProject(recipe, saveFileDialog1.FileName,fs);
+                fs.Close();
+            }
+        }
+        private static void saveCustomFile(string filename, ACFile filemeta, Stream stream)
+        {
+            //Stream stream = File.Open(filename, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, filemeta);
+        }
+
+        public static void saveSingleProject(Recipe recipe, string filename, Stream stream)
         {
             ACFile file = new ACFile();
             file.contents = ACF_PRJCT_MASK;
-            file.filename = $"{recipe.Name}.acf";
+            file.filename = filename;
             file.creationDate = DateTime.Now;
             file.projects = new Notes<Recipe>();
             file.projects.addNote(recipe);
-            saveCustomFile(file.filename, file);
+            saveCustomFile(file.filename, file, stream);
         }
     }
 }
