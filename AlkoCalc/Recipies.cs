@@ -67,6 +67,7 @@ namespace AlkoCalc
         private string[] properties;
         private DateTime created;
         private DateTime lastEdited;
+        private LbxLabel label;
 
         public Recipe(Types type, string name, string[] ingredients)
         {

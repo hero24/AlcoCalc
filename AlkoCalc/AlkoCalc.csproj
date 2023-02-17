@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Calculations.cs" />
     <Compile Include="Filehandler.cs" />
+    <Compile Include="LbxLabel.cs" />
     <Compile Include="Recipies.cs" />
     <Compile Include="GUI.cs">
       <SubType>Form</SubType>
