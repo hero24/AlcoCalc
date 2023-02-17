@@ -75,13 +75,28 @@ namespace AlkoCalc
             filemeta.notes = new Notes<Note>();
             filemeta.projects = new Notes<Recipe>();
         }
-
+        
         public void saveFile()
+        {
+            saveCustomFile(this.filename, this.filemeta);
+        }
+        private void saveCustomFile(string filename, ACFile filemeta)
         {
             Stream stream = File.Open(filename, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             formatter.Serialize(stream, filemeta);
             stream.Close();
+        }
+
+        public void saveSingleProject(Recipe recipe)
+        {
+            ACFile file = new ACFile();
+            file.contents = ACF_PRJCT_MASK;
+            file.filename = $"{recipe.Name}.acf";
+            file.creationDate = DateTime.Now;
+            file.projects = new Notes<Recipe>();
+            file.projects.addNote(recipe);
+            saveCustomFile(file.filename, file);
         }
     }
 }
