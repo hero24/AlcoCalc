@@ -115,14 +115,14 @@ namespace AlkoCalc
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create))
                 {
-                    var lbl_xml = archive.CreateEntry(LABEL_XML);
+                    var lbl_xml = archive.CreateEntry(LABEL_XML, CompressionLevel.NoCompression);
                     using (var entryStream = lbl_xml.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
                         streamWriter.Write(label_xml.OuterXml);
                     }
 
-                    var prp_xml = archive.CreateEntry(PROP_XML);
+                    var prp_xml = archive.CreateEntry(PROP_XML, CompressionLevel.NoCompression);
                     using (var entryStream = prp_xml.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
@@ -130,7 +130,7 @@ namespace AlkoCalc
                     }
                     if (Object0 != null)
                     {
-                        var obj0 = archive.CreateEntry(IMAGE_FL);
+                        var obj0 = archive.CreateEntry(IMAGE_FL, CompressionLevel.NoCompression);
                         using (var entryStream = obj0.Open())
                         using (var streamWriter = new StreamWriter(entryStream))
                         {
@@ -174,6 +174,8 @@ namespace AlkoCalc
 
         private void replaceXml(string old, string new_)
         {
+            // maybe need adjustment to xml file; so far works;
+            // <text:stringItem charLen="9"> occourance 0 i 2;
             XmlNodeList datalist = label_xml.GetElementsByTagName("pt:data");
             XmlNode data = datalist.Item(0);
             string text = data.InnerText;
