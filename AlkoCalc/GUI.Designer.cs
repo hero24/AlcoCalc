@@ -118,8 +118,9 @@ namespace AlkoCalc
             this.typeBox = new System.Windows.Forms.ListBox();
             this.newProject = new System.Windows.Forms.Button();
             this.openedProjectTab = new System.Windows.Forms.TabPage();
-            this.loadPrFF = new System.Windows.Forms.Button();
             this.sprjTF = new System.Windows.Forms.Button();
+            this.loadPrFF = new System.Windows.Forms.Button();
+            this.lbxBtn = new System.Windows.Forms.Button();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1017,6 +1018,7 @@ namespace AlkoCalc
             // 
             // openedProjectTab
             // 
+            this.openedProjectTab.Controls.Add(this.lbxBtn);
             this.openedProjectTab.Controls.Add(this.sprjTF);
             this.openedProjectTab.Controls.Add(this.loadPrFF);
             this.openedProjectTab.Location = new System.Drawing.Point(4, 22);
@@ -1026,16 +1028,6 @@ namespace AlkoCalc
             this.openedProjectTab.TabIndex = 5;
             this.openedProjectTab.Text = "Open project";
             this.openedProjectTab.UseVisualStyleBackColor = true;
-            // 
-            // loadPrFF
-            // 
-            this.loadPrFF.Location = new System.Drawing.Point(909, 393);
-            this.loadPrFF.Name = "loadPrFF";
-            this.loadPrFF.Size = new System.Drawing.Size(159, 23);
-            this.loadPrFF.TabIndex = 0;
-            this.loadPrFF.Text = "Load project from file";
-            this.loadPrFF.UseVisualStyleBackColor = true;
-            this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
             // 
             // sprjTF
             // 
@@ -1047,6 +1039,27 @@ namespace AlkoCalc
             this.sprjTF.UseVisualStyleBackColor = true;
             this.sprjTF.Visible = false;
             this.sprjTF.Click += new System.EventHandler(this.sprjTF_Click);
+            // 
+            // loadPrFF
+            // 
+            this.loadPrFF.Location = new System.Drawing.Point(909, 393);
+            this.loadPrFF.Name = "loadPrFF";
+            this.loadPrFF.Size = new System.Drawing.Size(159, 23);
+            this.loadPrFF.TabIndex = 0;
+            this.loadPrFF.Text = "Load project from file";
+            this.loadPrFF.UseVisualStyleBackColor = true;
+            this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
+            // 
+            // lbxBtn
+            // 
+            this.lbxBtn.Location = new System.Drawing.Point(772, 393);
+            this.lbxBtn.Name = "lbxBtn";
+            this.lbxBtn.Size = new System.Drawing.Size(131, 23);
+            this.lbxBtn.TabIndex = 2;
+            this.lbxBtn.Text = "Generate label";
+            this.lbxBtn.UseVisualStyleBackColor = true;
+            this.lbxBtn.Visible = false;
+            this.lbxBtn.Click += new System.EventHandler(this.lbxBtn_Click);
             // 
             // GUI
             // 
@@ -1181,6 +1194,7 @@ namespace AlkoCalc
         private System.Windows.Forms.TabPage openedProjectTab;
         private System.Windows.Forms.Button loadPrFF;
         private System.Windows.Forms.Button sprjTF;
+        private System.Windows.Forms.Button lbxBtn;
     }
 }
 
