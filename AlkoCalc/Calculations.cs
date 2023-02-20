@@ -90,7 +90,8 @@ namespace AlkoCalc
 
         public override decimal Calculate()
         {
-            return total / (abv / wantedAbv);
+            result = total / (abv / wantedAbv);
+            return result;
         }
 
         public decimal GetWater()
