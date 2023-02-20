@@ -149,5 +149,32 @@ namespace AlkoCalc
             return result;
         }
     }
+
+    class UnitCalc : Calculator
+    {
+        protected decimal abv, volume;
+        public UnitCalc(decimal abv, decimal volume)
+        {
+            this.abv = abv;
+            this.volume = volume;
+        }
+        public override decimal Calculate()
+        {
+            result = volume * abv * ((decimal) 0.000789);
+            return result;
+        }
+    }
+
+    class UKUnit : UnitCalc
+    {
+        public UKUnit(decimal abv, decimal vol) : base(abv, vol)
+        {}
+
+        public override decimal Calculate()
+        {
+            result = (this.abv * this.volume) / 1000;
+            return result;
+        }
+    }
 }
 
