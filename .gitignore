@@ -16,3 +16,4 @@ AlkoCalc/obj/Debug/AlkoCalc.pdb
 AlkoCalc/obj/Debug/AlkoCalc.Properties.Resources.resources
 AlkoCalc/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 AlkoCalc/bin/Debug/*.aclf
+*.exe
