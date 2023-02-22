@@ -304,9 +304,9 @@ namespace AlkoCalc
             boxGroup[(int)Recipe.Index.Desc].Text = recipe.Description;
             boxGroup[(int)Recipe.Index.EdiD].Text = recipe.Edited.ToString();
             boxGroup[(int)Recipe.Index.Fsg].Text = recipe.finishingGravity.ToString();
-            boxGroup[(int)Recipe.Index.Ingr].Text = String.Join(" ", recipe.Ingredients);
+            boxGroup[(int)Recipe.Index.Ingr].Text = recipe[Recipe.Index.Ingr];
             boxGroup[(int)Recipe.Index.Notes].Text = recipe.Notes;
-            boxGroup[(int)Recipe.Index.Prop].Text = String.Join(" ", recipe.Properties);
+            boxGroup[(int)Recipe.Index.Prop].Text = recipe[Recipe.Index.Prop];
             boxGroup[(int)Recipe.Index.Spirit].Text = recipe.Spirit.ToString();
             boxGroup[(int)Recipe.Index.Ssg].Text = recipe.startingGravity.ToString();
             boxGroup[(int)Recipe.Index.Water].Text = recipe.Water.ToString();
