@@ -19,14 +19,14 @@ namespace AlkoCalc
     {
         private const string LABEL_XML = "label.xml";
         private const string PROP_XML = "prop.xml";
-        private const string IMAGE_FL = "Object0.jpg";
+        private const string IMAGE_FL = "Object0.bmp";
 
         // make theese into passable array
         private const string TITLE_PLACEHOLDER = "BEER_NAME";
         private const string PERCENTAGE_PLACEHOLDER = "BP%";
 
         // templates
-        private readonly string[] TEMPLATES = { 
+        private readonly string[] TEMPLATES = {
             "beerstamp.aclf" 
         };
         
@@ -115,6 +115,16 @@ namespace AlkoCalc
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create))
                 {
+                    if (Object0 != null)
+                    {
+                        var obj0 = archive.CreateEntry(IMAGE_FL, CompressionLevel.NoCompression);
+                        using (var entryStream = obj0.Open())
+                        using (var streamWriter = new StreamWriter(entryStream))
+                        {
+                            Object0.Save(entryStream, ImageFormat.Jpeg);
+                        }
+
+                    }
                     var lbl_xml = archive.CreateEntry(LABEL_XML, CompressionLevel.NoCompression);
                     using (var entryStream = lbl_xml.Open())
                     using (var streamWriter = new StreamWriter(entryStream))
@@ -127,16 +137,6 @@ namespace AlkoCalc
                     using (var streamWriter = new StreamWriter(entryStream))
                     {
                         streamWriter.Write(prop_xml.OuterXml);
-                    }
-                    if (Object0 != null)
-                    {
-                        var obj0 = archive.CreateEntry(IMAGE_FL, CompressionLevel.NoCompression);
-                        using (var entryStream = obj0.Open())
-                        using (var streamWriter = new StreamWriter(entryStream))
-                        {
-                            Object0.Save(entryStream, ImageFormat.Jpeg);
-                        }
-
                     }
 
                 }
