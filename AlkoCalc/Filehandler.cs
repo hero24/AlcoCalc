@@ -82,10 +82,16 @@ namespace AlkoCalc
         }
         private static void saveCustomFile(string filename, ACFile filemeta)
         {
-            Stream stream = File.Open(filename, FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
-            formatter.Serialize(stream, filemeta);
-            stream.Close();
+            try
+            {
+                Stream stream = File.Open(filename, FileMode.Create);
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, filemeta);
+                stream.Close();
+            } catch (Exception e)
+            {
+                MessageBox.Show($"Unable to save {filename} file");
+            }
         }
 
         public static void saveFileDialog(Recipe recipe)
@@ -104,10 +110,19 @@ namespace AlkoCalc
                 fs.Close();
             }
         }
-
-        public static Notes<Recipe> openFileDialog()
+        public static Notes<Recipe> openRecipe(string filePath)
         {
             ACFile fileContent;
+            Stream notesBinary = File.Open(filePath, FileMode.Open);
+            BinaryFormatter deserialize = new BinaryFormatter();
+            fileContent = (ACFile)deserialize.Deserialize(notesBinary);
+            notesBinary.Close();
+            if ((fileContent.contents & ACF_PRJCT_MASK) == ACF_PRJCT_MASK)
+                return fileContent.projects;
+            return null;
+        }
+        public static Notes<Recipe> openFileDialog()
+        {
             var filePath = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -123,12 +138,7 @@ namespace AlkoCalc
 
                     try
                     {
-                        Stream notesBinary = File.Open(filePath, FileMode.Open);
-                        BinaryFormatter deserialize = new BinaryFormatter();
-                        fileContent = (ACFile)deserialize.Deserialize(notesBinary);
-                        notesBinary.Close();
-                        if ((fileContent.contents & ACF_PRJCT_MASK) == ACF_PRJCT_MASK)
-                            return fileContent.projects;
+                        return openRecipe(filePath);
                     }
                     catch (Exception e)
                     {

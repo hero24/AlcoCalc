@@ -27,7 +27,7 @@ namespace AlkoCalc
         private Filehandler filehandle;
         private RecipePanel openedProject;
 
-        public GUI()
+        private void constructorBody()
         {
             InitializeComponent();
             filehandle = new Filehandler(ACF_FILE);
@@ -35,6 +35,23 @@ namespace AlkoCalc
             projectPanel = new RecipePanel(filehandle.Projects);
             projectTab.Controls.Add(projectPanel);
             notes.Controls.Add(notespanel);
+        }
+        public GUI()
+        {
+            constructorBody();
+        }
+
+        public GUI(string projectFile)
+        {
+            constructorBody();
+            Notes<Recipe> rec = Filehandler.openRecipe(projectFile);
+            if (rec == null)
+                return;
+            openedProject = new RecipePanel(rec);
+            openedProjectTab.Controls.Add(openedProject);
+            loadPrFF.Visible = false;
+            sprjTF.Visible = true;
+            tabs.SelectedTab = tabs.TabPages["OpenedProjectTab"];
         }
 
         private decimal getNumberFromField(TextBox box)
