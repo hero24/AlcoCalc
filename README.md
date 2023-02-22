@@ -21,4 +21,5 @@ AlcoCalc is a brewers calculator that allows its users to:
 Project has 3 branches:
 - `main` - a stable version
 - `next-experimental` - experimental next version were dev work is made - things might change here without notices
-- `nx-exp-lbx` - this is where lbx version of program resides, it allows for generating brother vc-500w lbx label files. This is DIY build.
+- `nxt-exp-lbx` - experimental branch for lbx version
+- `exp-lbx` - this is where lbx version of program resides, it allows for generating brother vc-500w lbx label files. This is DIY build.
