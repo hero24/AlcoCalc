@@ -65,6 +65,7 @@ namespace AlkoCalc
             this.alcoholStrength = new System.Windows.Forms.TextBox();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -120,6 +121,20 @@ namespace AlkoCalc
             this.openedProjectTab = new System.Windows.Forms.TabPage();
             this.sprjTF = new System.Windows.Forms.Button();
             this.loadPrFF = new System.Windows.Forms.Button();
+            this.unitsBtn = new System.Windows.Forms.Button();
+            this.abvUnits = new System.Windows.Forms.TextBox();
+            this.volumeUnits = new System.Windows.Forms.TextBox();
+            this.unitResult = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.ukUnitsBtn = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.abvUkUn = new System.Windows.Forms.TextBox();
+            this.volUkUn = new System.Windows.Forms.TextBox();
+            this.resultUkUm = new System.Windows.Forms.TextBox();
             this.lbxBtn = new System.Windows.Forms.Button();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -127,6 +142,7 @@ namespace AlkoCalc
             this.groupBox2.SuspendLayout();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -137,6 +153,8 @@ namespace AlkoCalc
             this.notes.SuspendLayout();
             this.projectTab.SuspendLayout();
             this.openedProjectTab.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -474,6 +492,7 @@ namespace AlkoCalc
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Controls.Add(this.dilutionCalculations);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -482,6 +501,17 @@ namespace AlkoCalc
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dilutions";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.groupBox10);
+            this.groupBox8.Controls.Add(this.groupBox9);
+            this.groupBox8.Location = new System.Drawing.Point(3, 210);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(439, 165);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Units";
             // 
             // tabPage2
             // 
@@ -1061,6 +1091,144 @@ namespace AlkoCalc
             this.lbxBtn.Visible = false;
             this.lbxBtn.Click += new System.EventHandler(this.lbxBtn_Click);
             // 
+            // loadPrFF
+            // 
+            this.loadPrFF.Location = new System.Drawing.Point(909, 393);
+            this.loadPrFF.Name = "loadPrFF";
+            this.loadPrFF.Size = new System.Drawing.Size(159, 23);
+            this.loadPrFF.TabIndex = 0;
+            this.loadPrFF.Text = "Load project from file";
+            this.loadPrFF.UseVisualStyleBackColor = true;
+            this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
+            // 
+            // unitsBtn
+            // 
+            this.unitsBtn.Location = new System.Drawing.Point(6, 97);
+            this.unitsBtn.Name = "unitsBtn";
+            this.unitsBtn.Size = new System.Drawing.Size(75, 23);
+            this.unitsBtn.TabIndex = 0;
+            this.unitsBtn.Text = "Calculate";
+            this.unitsBtn.UseVisualStyleBackColor = true;
+            this.unitsBtn.Click += new System.EventHandler(this.unitsBtn_Click);
+            // 
+            // abvUnits
+            // 
+            this.abvUnits.Location = new System.Drawing.Point(94, 29);
+            this.abvUnits.Name = "abvUnits";
+            this.abvUnits.Size = new System.Drawing.Size(100, 20);
+            this.abvUnits.TabIndex = 1;
+            // 
+            // volumeUnits
+            // 
+            this.volumeUnits.Location = new System.Drawing.Point(94, 59);
+            this.volumeUnits.Name = "volumeUnits";
+            this.volumeUnits.Size = new System.Drawing.Size(100, 20);
+            this.volumeUnits.TabIndex = 2;
+            // 
+            // unitResult
+            // 
+            this.unitResult.Location = new System.Drawing.Point(94, 99);
+            this.unitResult.Name = "unitResult";
+            this.unitResult.Size = new System.Drawing.Size(100, 20);
+            this.unitResult.TabIndex = 3;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(53, 32);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(28, 13);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "ABV";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(41, 62);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(42, 13);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Volume";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.unitsBtn);
+            this.groupBox9.Controls.Add(this.abvUnits);
+            this.groupBox9.Controls.Add(this.label23);
+            this.groupBox9.Controls.Add(this.label24);
+            this.groupBox9.Controls.Add(this.volumeUnits);
+            this.groupBox9.Controls.Add(this.unitResult);
+            this.groupBox9.Location = new System.Drawing.Point(13, 24);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(200, 126);
+            this.groupBox9.TabIndex = 6;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Irish units";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.resultUkUm);
+            this.groupBox10.Controls.Add(this.volUkUn);
+            this.groupBox10.Controls.Add(this.abvUkUn);
+            this.groupBox10.Controls.Add(this.label26);
+            this.groupBox10.Controls.Add(this.label25);
+            this.groupBox10.Controls.Add(this.ukUnitsBtn);
+            this.groupBox10.Location = new System.Drawing.Point(219, 24);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(200, 126);
+            this.groupBox10.TabIndex = 7;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "UK units";
+            // 
+            // ukUnitsBtn
+            // 
+            this.ukUnitsBtn.Location = new System.Drawing.Point(6, 96);
+            this.ukUnitsBtn.Name = "ukUnitsBtn";
+            this.ukUnitsBtn.Size = new System.Drawing.Size(75, 23);
+            this.ukUnitsBtn.TabIndex = 0;
+            this.ukUnitsBtn.Text = "Calculate";
+            this.ukUnitsBtn.UseVisualStyleBackColor = true;
+            this.ukUnitsBtn.Click += new System.EventHandler(this.ukUnitsBtn_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(53, 36);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(28, 13);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "ABV";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(39, 66);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(42, 13);
+            this.label26.TabIndex = 6;
+            this.label26.Text = "Volume";
+            // 
+            // abvUkUn
+            // 
+            this.abvUkUn.Location = new System.Drawing.Point(87, 32);
+            this.abvUkUn.Name = "abvUkUn";
+            this.abvUkUn.Size = new System.Drawing.Size(100, 20);
+            this.abvUkUn.TabIndex = 7;
+            // 
+            // volUkUn
+            // 
+            this.volUkUn.Location = new System.Drawing.Point(87, 66);
+            this.volUkUn.Name = "volUkUn";
+            this.volUkUn.Size = new System.Drawing.Size(100, 20);
+            this.volUkUn.TabIndex = 8;
+            // 
+            // resultUkUm
+            // 
+            this.resultUkUm.Location = new System.Drawing.Point(87, 97);
+            this.resultUkUm.Name = "resultUkUm";
+            this.resultUkUm.Size = new System.Drawing.Size(100, 20);
+            this.resultUkUm.TabIndex = 9;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1081,6 +1249,7 @@ namespace AlkoCalc
             this.groupBox2.PerformLayout();
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -1097,6 +1266,10 @@ namespace AlkoCalc
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
             this.openedProjectTab.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1194,6 +1367,21 @@ namespace AlkoCalc
         private System.Windows.Forms.TabPage openedProjectTab;
         private System.Windows.Forms.Button loadPrFF;
         private System.Windows.Forms.Button sprjTF;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox unitResult;
+        private System.Windows.Forms.TextBox volumeUnits;
+        private System.Windows.Forms.TextBox abvUnits;
+        private System.Windows.Forms.Button unitsBtn;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox resultUkUm;
+        private System.Windows.Forms.TextBox volUkUn;
+        private System.Windows.Forms.TextBox abvUkUn;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button ukUnitsBtn;
         private System.Windows.Forms.Button lbxBtn;
     }
 }

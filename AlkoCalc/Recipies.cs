@@ -75,7 +75,7 @@ namespace AlkoCalc
             this.name = name;
             this.ingredients = ingredients;
             this.created = DateTime.Now;
-            this.created = lastEdited;
+            this.lastEdited = created;
             ing_idx = (uint) ingredients.Length;
             this.properties = new string[0];
             for (int i = 0; i < editable.Length; i++)
