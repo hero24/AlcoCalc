@@ -331,5 +331,19 @@ namespace AlkoCalc
             Recipe rec = openedProject.getRecipe(0);
             Filehandler.saveFileDialog(rec);
         }
+
+        private void unitsBtn_Click(object sender, EventArgs e)
+        {
+            UnitCalc calc = new UnitCalc(decimal.Parse(abvUnits.Text), 
+                decimal.Parse(volumeUnits.Text));
+            doCalculation(calc, unitResult);
+        }
+
+        private void ukUnitsBtn_Click(object sender, EventArgs e)
+        {
+            UKUnit calc = new UKUnit(decimal.Parse(abvUkUn.Text),
+    decimal.Parse(volUkUn.Text));
+            doCalculation(calc, resultUkUm);
+        }
     }
 }
