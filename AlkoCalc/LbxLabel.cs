@@ -178,12 +178,17 @@ namespace AlkoCalc
                 if (this.type is LabelType.WINE_INGR)
                 {
                     string[] ingr = value.Split(',');
+                    string comma = ",";
                     int i = 0;
                     for (int line = 1; line < 5; line++)
                     {
                         string ing_line = "";
                         for (; i < ingr.Length && ing_line.Length + ingr[i].Length < 30; i++)
-                            ing_line = String.Concat(ing_line, ingr[i]);
+                        {
+                            if (i >= ingr.Length)
+                                comma = "";
+                            ing_line = String.Concat(ing_line, $"{ingr[i]}{comma}");
+                        }
                         replaceXml($"{INGREDIENT_LINE}{line}", ing_line);
                         ing_line = "";
                     }
