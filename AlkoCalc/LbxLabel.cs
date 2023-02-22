@@ -9,9 +9,11 @@ using System.Xml;
 
 namespace AlkoCalc
 {
+    [Serializable()]
     enum LabelType
     {
-        BEERSTAMP = 0
+        BEERSTAMP = 0,
+        WINE_INGR
     } 
 
     [Serializable()]
@@ -24,6 +26,8 @@ namespace AlkoCalc
         // make theese into passable array
         private const string TITLE_PLACEHOLDER = "BEER_NAME";
         private const string PERCENTAGE_PLACEHOLDER = "BP%";
+        private const string DATE_PLACEHOLDER = "DATA";
+        private readonly string INGREDIENT_LINE = $"{new string('l', 30)}";
 
         // templates
         private readonly string[] TEMPLATES = {
@@ -38,6 +42,7 @@ namespace AlkoCalc
         public string ser_label;
         public string ser_prop;
         private Image Object0;
+        private LabelType type;
 
         public string LX { 
             get { return label_xml.OuterXml; } 
@@ -57,8 +62,12 @@ namespace AlkoCalc
                 prop_xml.LoadXml(ser_prop);
             }
         }
+        public LabelType T
+        {
+            get { return type; }
+        }
         public Image I { get { return Object0; } }
-        public LbxLabel(string lbx_path)
+        public LbxLabel(string lbx_path, LabelType type)
         {
             ZipArchive lbxfile;
             lbxfile = ZipFile.Open(lbx_path, ZipArchiveMode.Read);
@@ -76,6 +85,7 @@ namespace AlkoCalc
             }
             ser_label = label_xml.OuterXml;
             ser_prop = prop_xml.OuterXml;
+            this.type = type;
         }
 
         public LbxLabel() { }
@@ -83,6 +93,7 @@ namespace AlkoCalc
         public LbxLabel(string title, float abv, LabelType type)
         {
             string perc;
+            this.type = type;
             this.loadTemplate(TEMPLATES[(int)type]);
             this.Title = title;
             perc = abv.ToString("0.00");
@@ -99,6 +110,7 @@ namespace AlkoCalc
             this.LX = lbx.ser_label;
             this.PX = lbx.ser_prop;
             this.Object0 = lbx.I;
+            this.type = lbx.T;
         }
 
         public static void generateTemplate(LbxLabel label, string templateName)
@@ -160,7 +172,22 @@ namespace AlkoCalc
         { 
             set 
             {
-                replaceXml(TITLE_PLACEHOLDER, value);
+                if(this.type is LabelType.BEERSTAMP)
+                    replaceXml(TITLE_PLACEHOLDER, value);
+                if (this.type is LabelType.WINE_INGR)
+                {
+                    string[] ingr = value.Split(',');
+                    for(int line = 1; line < 5; line++)
+                    {
+                        int i = 0;
+                        string ing_line = "";
+                        for (i = 0; i < ingr.Length && ing_line.Length + ingr[i].Length < 30; i++)
+                            ing_line = String.Concat(ing_line, ingr[i]);
+                        replaceXml($"{INGREDIENT_LINE}{line}", ing_line);
+                        ing_line = "";
+                    }
+                    replaceXml(DATE_PLACEHOLDER, DateTime.Today.ToString());
+                }
             }
         }
 
