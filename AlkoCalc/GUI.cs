@@ -324,7 +324,8 @@ namespace AlkoCalc
             openedProjectTab.Controls.Add(openedProject);
             loadPrFF.Visible = false;
             sprjTF.Visible = true;
-            if (rec.getNote(0).Type == Types.BEER.ToString())
+            if (rec.getNote(0).Type == Types.BEER.ToString()
+                || rec.getNote(0).Type == Types.WINE.ToString())
                 lbxBtn.Visible = true;
         }
 
@@ -337,8 +338,9 @@ namespace AlkoCalc
         private void lbxBtn_Click(object sender, EventArgs e)
         {
             Recipe rec = openedProject.getRecipe(0);
-            LbxLabel lbx = new LbxLabel(rec.Name, rec.Abv,
-                LabelType.BEERSTAMP);
+            LabelType type = rec.Type == Types.BEER.ToString() ? LabelType.BEERSTAMP : LabelType.WINE_INGR;
+            string name = type == LabelType.BEERSTAMP ? rec.Name : String.Join(",", rec.Ingredients);
+            LbxLabel lbx = new LbxLabel(name, rec.Abv, type);
             lbx.saveLbx();
         }
     }

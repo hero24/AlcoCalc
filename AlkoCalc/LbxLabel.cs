@@ -31,7 +31,8 @@ namespace AlkoCalc
 
         // templates
         private readonly string[] TEMPLATES = {
-            "beerstamp.aclf" 
+            "beerstamp.aclf",
+            "ingredients.aclf"
         };
         
         [NonSerialized()]
@@ -177,16 +178,16 @@ namespace AlkoCalc
                 if (this.type is LabelType.WINE_INGR)
                 {
                     string[] ingr = value.Split(',');
-                    for(int line = 1; line < 5; line++)
+                    int i = 0;
+                    for (int line = 1; line < 5; line++)
                     {
-                        int i = 0;
                         string ing_line = "";
-                        for (i = 0; i < ingr.Length && ing_line.Length + ingr[i].Length < 30; i++)
+                        for (; i < ingr.Length && ing_line.Length + ingr[i].Length < 30; i++)
                             ing_line = String.Concat(ing_line, ingr[i]);
                         replaceXml($"{INGREDIENT_LINE}{line}", ing_line);
                         ing_line = "";
                     }
-                    replaceXml(DATE_PLACEHOLDER, DateTime.Today.ToString());
+                    replaceXml(DATE_PLACEHOLDER, DateTime.Today.ToString("dd-MM-yyyy"));
                 }
             }
         }
