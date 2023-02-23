@@ -375,5 +375,64 @@ namespace AlkoCalc
             LbxLabel lbx = new LbxLabel(name, rec.Abv, type);
             lbx.saveLbx();
         }
+
+        private void honeyWater_Click(object sender, EventArgs e)
+        {
+            decimal ratio;
+            if (poltorak1.Checked)
+                ratio = 2m / 1m;
+            else if (dwojniak1.Checked)
+                ratio = 1m / 1m;
+            else if (trojniak1.Checked)
+                ratio = 1m / 2m;
+            else
+                return;
+            RatioCalculator rc = new RatioCalculator(ratio,
+                decimal.Parse(honVol.Text));
+            doCalculation(rc, honeyW);
+        }
+
+        private void calcWaterHon_Click(object sender, EventArgs e)
+        {
+            decimal ratio;
+            if (poltorak2.Checked)
+                ratio = 1m / 2m;
+            else if (dwojniak2.Checked)
+                ratio = 1m / 1m;
+            else if (trojniak2.Checked)
+                ratio = 2m / 1m;
+            else
+                return;
+            RatioCalculator rc = new RatioCalculator(ratio,
+                decimal.Parse(honwatervol.Text));
+            doCalculation(rc, waterHonResult);
+        }
+
+        private void honWatTotCalc_Click(object sender, EventArgs e)
+        {
+            decimal honey, water, total, basediv;
+            if (poltorak3.Checked)
+            {
+                honey = 2m;
+                water = 1m;
+            }
+            else if (dwojniak3.Checked)
+            {
+                honey = 1m;
+                water = 1m;
+            }
+            else if (trojniak3.Checked)
+            {
+                honey = 1m;
+                water = 2m;
+            }
+            else
+                return;
+            total = decimal.Parse(totMeadVol.Text);
+            basediv = total / (honey + water);
+            meadHoneyResult.Text = (basediv * honey).ToString();
+            meadWaterResult.Text = (basediv * water).ToString();
+
+        }
     }
 }

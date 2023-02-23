@@ -176,5 +176,21 @@ namespace AlkoCalc
             return result;
         }
     }
+
+    class RatioCalculator : Calculator
+    {
+        decimal volume;
+        decimal ratio;
+        public RatioCalculator(decimal ratio, decimal volume)
+        {
+            this.volume = volume;
+            this.ratio = ratio;
+        }
+        public override decimal Calculate()
+        {
+            result = volume / ratio;
+            return result;
+        }
+    }
 }
 
