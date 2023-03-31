@@ -109,6 +109,13 @@ namespace AlkoCalc
             this.volumeUnits = new System.Windows.Forms.TextBox();
             this.unitResult = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.sgrsltbx = new System.Windows.Forms.TextBox();
+            this.sgclcbtn = new System.Windows.Forms.Button();
+            this.sgfngv = new System.Windows.Forms.TextBox();
+            this.sgabvwntd = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.blgResult = new System.Windows.Forms.TextBox();
@@ -164,13 +171,6 @@ namespace AlkoCalc
             this.lbxBtn = new System.Windows.Forms.Button();
             this.sprjTF = new System.Windows.Forms.Button();
             this.loadPrFF = new System.Windows.Forms.Button();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.sgabvwntd = new System.Windows.Forms.TextBox();
-            this.sgfngv = new System.Windows.Forms.TextBox();
-            this.sgclcbtn = new System.Windows.Forms.Button();
-            this.sgrsltbx = new System.Windows.Forms.TextBox();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -185,6 +185,7 @@ namespace AlkoCalc
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -194,7 +195,6 @@ namespace AlkoCalc
             this.notes.SuspendLayout();
             this.projectTab.SuspendLayout();
             this.openedProjectTab.SuspendLayout();
-            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -987,6 +987,71 @@ namespace AlkoCalc
             this.tabPage2.Text = "Sugar gravity";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.sgrsltbx);
+            this.groupBox15.Controls.Add(this.sgclcbtn);
+            this.groupBox15.Controls.Add(this.sgfngv);
+            this.groupBox15.Controls.Add(this.sgabvwntd);
+            this.groupBox15.Controls.Add(this.label33);
+            this.groupBox15.Controls.Add(this.label32);
+            this.groupBox15.Location = new System.Drawing.Point(210, 218);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(200, 107);
+            this.groupBox15.TabIndex = 4;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Starting gravity";
+            // 
+            // sgrsltbx
+            // 
+            this.sgrsltbx.Enabled = false;
+            this.sgrsltbx.Location = new System.Drawing.Point(89, 80);
+            this.sgrsltbx.Name = "sgrsltbx";
+            this.sgrsltbx.Size = new System.Drawing.Size(100, 20);
+            this.sgrsltbx.TabIndex = 5;
+            // 
+            // sgclcbtn
+            // 
+            this.sgclcbtn.Location = new System.Drawing.Point(7, 77);
+            this.sgclcbtn.Name = "sgclcbtn";
+            this.sgclcbtn.Size = new System.Drawing.Size(75, 23);
+            this.sgclcbtn.TabIndex = 4;
+            this.sgclcbtn.Text = "Calculate";
+            this.sgclcbtn.UseVisualStyleBackColor = true;
+            this.sgclcbtn.Click += new System.EventHandler(this.sgclcbtn_Click);
+            // 
+            // sgfngv
+            // 
+            this.sgfngv.Location = new System.Drawing.Point(76, 45);
+            this.sgfngv.Name = "sgfngv";
+            this.sgfngv.Size = new System.Drawing.Size(100, 20);
+            this.sgfngv.TabIndex = 3;
+            // 
+            // sgabvwntd
+            // 
+            this.sgabvwntd.Location = new System.Drawing.Point(76, 18);
+            this.sgabvwntd.Name = "sgabvwntd";
+            this.sgabvwntd.Size = new System.Drawing.Size(100, 20);
+            this.sgabvwntd.TabIndex = 2;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 49);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(66, 13);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "Finishing SG";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 23);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(66, 13);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "ABV wanted";
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.label22);
@@ -1551,71 +1616,6 @@ namespace AlkoCalc
             this.loadPrFF.UseVisualStyleBackColor = true;
             this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
             // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.sgrsltbx);
-            this.groupBox15.Controls.Add(this.sgclcbtn);
-            this.groupBox15.Controls.Add(this.sgfngv);
-            this.groupBox15.Controls.Add(this.sgabvwntd);
-            this.groupBox15.Controls.Add(this.label33);
-            this.groupBox15.Controls.Add(this.label32);
-            this.groupBox15.Location = new System.Drawing.Point(210, 218);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(200, 107);
-            this.groupBox15.TabIndex = 4;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Starting gravity";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(3, 23);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(66, 13);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "ABV wanted";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 49);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(66, 13);
-            this.label33.TabIndex = 1;
-            this.label33.Text = "Finishing SG";
-            // 
-            // sgabvwntd
-            // 
-            this.sgabvwntd.Location = new System.Drawing.Point(76, 18);
-            this.sgabvwntd.Name = "sgabvwntd";
-            this.sgabvwntd.Size = new System.Drawing.Size(100, 20);
-            this.sgabvwntd.TabIndex = 2;
-            // 
-            // sgfngv
-            // 
-            this.sgfngv.Location = new System.Drawing.Point(76, 45);
-            this.sgfngv.Name = "sgfngv";
-            this.sgfngv.Size = new System.Drawing.Size(100, 20);
-            this.sgfngv.TabIndex = 3;
-            // 
-            // sgclcbtn
-            // 
-            this.sgclcbtn.Location = new System.Drawing.Point(7, 77);
-            this.sgclcbtn.Name = "sgclcbtn";
-            this.sgclcbtn.Size = new System.Drawing.Size(75, 23);
-            this.sgclcbtn.TabIndex = 4;
-            this.sgclcbtn.Text = "Calculate";
-            this.sgclcbtn.UseVisualStyleBackColor = true;
-            this.sgclcbtn.Click += new System.EventHandler(this.sgclcbtn_Click);
-            // 
-            // sgrsltbx
-            // 
-            this.sgrsltbx.Enabled = false;
-            this.sgrsltbx.Location = new System.Drawing.Point(89, 80);
-            this.sgrsltbx.Name = "sgrsltbx";
-            this.sgrsltbx.Size = new System.Drawing.Size(100, 20);
-            this.sgrsltbx.TabIndex = 5;
-            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1649,6 +1649,8 @@ namespace AlkoCalc
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1664,8 +1666,6 @@ namespace AlkoCalc
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
             this.openedProjectTab.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
 
         }
