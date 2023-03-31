@@ -26,9 +26,9 @@ namespace AlkoCalc
     }
     class SugarGravityAbv : Calculator
     {
-        decimal startingGravity;
-        decimal finishingGravity;
-        const decimal MULTIPLIER = 131.25m;
+        protected decimal startingGravity;
+        protected decimal finishingGravity;
+        protected const decimal MULTIPLIER = 131.25m;
         public SugarGravityAbv(decimal sg, decimal fg)
         {
             startingGravity = sg;
@@ -38,6 +38,17 @@ namespace AlkoCalc
         public override decimal Calculate()
         {
             result = (startingGravity - finishingGravity) * MULTIPLIER;
+            return result;
+        }
+    }
+
+    class AbvToGravity : SugarGravityAbv
+    {
+        public AbvToGravity(decimal abv, decimal fg) : base(abv, fg) {}
+
+        public override decimal Calculate()
+        {
+            result = (startingGravity / MULTIPLIER) + finishingGravity;
             return result;
         }
     }
