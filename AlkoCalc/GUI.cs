@@ -380,7 +380,7 @@ namespace AlkoCalc
         {
             decimal ratio;
             if (poltorak1.Checked)
-                ratio = 2m / 1m;
+                ratio = 1m / 0.5m;
             else if (dwojniak1.Checked)
                 ratio = 1m / 1m;
             else if (trojniak1.Checked)
@@ -433,6 +433,13 @@ namespace AlkoCalc
             meadHoneyResult.Text = (basediv * honey).ToString();
             meadWaterResult.Text = (basediv * water).ToString();
 
+        }
+
+        private void sgclcbtn_Click(object sender, EventArgs e)
+        {
+            AbvToGravity atg = new AbvToGravity(decimal.Parse(sgabvwntd.Text),
+                decimal.Parse(sgfngv.Text));
+            doCalculation(atg, sgrsltbx);
         }
     }
 }

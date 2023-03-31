@@ -66,6 +66,25 @@ namespace AlkoCalc
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.meadWaterResult = new System.Windows.Forms.TextBox();
+            this.meadHoneyResult = new System.Windows.Forms.TextBox();
+            this.honWatTotCalc = new System.Windows.Forms.Button();
+            this.label29 = new System.Windows.Forms.Label();
+            this.totMeadVol = new System.Windows.Forms.TextBox();
+            this.trojniak3 = new System.Windows.Forms.RadioButton();
+            this.dwojniak3 = new System.Windows.Forms.RadioButton();
+            this.poltorak3 = new System.Windows.Forms.RadioButton();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.calcWaterHon = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.waterHonResult = new System.Windows.Forms.TextBox();
+            this.honwatervol = new System.Windows.Forms.TextBox();
+            this.trojniak2 = new System.Windows.Forms.RadioButton();
+            this.dwojniak2 = new System.Windows.Forms.RadioButton();
+            this.poltorak2 = new System.Windows.Forms.RadioButton();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.honeyW = new System.Windows.Forms.TextBox();
             this.honVol = new System.Windows.Forms.TextBox();
@@ -142,44 +161,16 @@ namespace AlkoCalc
             this.typeBox = new System.Windows.Forms.ListBox();
             this.newProject = new System.Windows.Forms.Button();
             this.openedProjectTab = new System.Windows.Forms.TabPage();
+            this.lbxBtn = new System.Windows.Forms.Button();
             this.sprjTF = new System.Windows.Forms.Button();
             this.loadPrFF = new System.Windows.Forms.Button();
-
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.poltorak2 = new System.Windows.Forms.RadioButton();
-            this.dwojniak2 = new System.Windows.Forms.RadioButton();
-            this.trojniak2 = new System.Windows.Forms.RadioButton();
-            this.honwatervol = new System.Windows.Forms.TextBox();
-            this.waterHonResult = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.calcWaterHon = new System.Windows.Forms.Button();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.poltorak3 = new System.Windows.Forms.RadioButton();
-            this.dwojniak3 = new System.Windows.Forms.RadioButton();
-            this.trojniak3 = new System.Windows.Forms.RadioButton();
-            this.totMeadVol = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.honWatTotCalc = new System.Windows.Forms.Button();
-            this.meadHoneyResult = new System.Windows.Forms.TextBox();
-            this.meadWaterResult = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.unitsBtn = new System.Windows.Forms.Button();
-            this.abvUnits = new System.Windows.Forms.TextBox();
-            this.volumeUnits = new System.Windows.Forms.TextBox();
-            this.unitResult = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.ukUnitsBtn = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.abvUkUn = new System.Windows.Forms.TextBox();
-            this.volUkUn = new System.Windows.Forms.TextBox();
-            this.resultUkUm = new System.Windows.Forms.TextBox();
-            this.lbxBtn = new System.Windows.Forms.Button();
-
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.sgabvwntd = new System.Windows.Forms.TextBox();
+            this.sgfngv = new System.Windows.Forms.TextBox();
+            this.sgclcbtn = new System.Windows.Forms.Button();
+            this.sgrsltbx = new System.Windows.Forms.TextBox();
             this.dilutionCalculations.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,6 +178,8 @@ namespace AlkoCalc
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -201,8 +194,7 @@ namespace AlkoCalc
             this.notes.SuspendLayout();
             this.projectTab.SuspendLayout();
             this.openedProjectTab.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // dilutionCalculations
@@ -563,6 +555,201 @@ namespace AlkoCalc
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Polish style mead";
             // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.label31);
+            this.groupBox14.Controls.Add(this.label30);
+            this.groupBox14.Controls.Add(this.meadWaterResult);
+            this.groupBox14.Controls.Add(this.meadHoneyResult);
+            this.groupBox14.Controls.Add(this.honWatTotCalc);
+            this.groupBox14.Controls.Add(this.label29);
+            this.groupBox14.Controls.Add(this.totMeadVol);
+            this.groupBox14.Controls.Add(this.trojniak3);
+            this.groupBox14.Controls.Add(this.dwojniak3);
+            this.groupBox14.Controls.Add(this.poltorak3);
+            this.groupBox14.Location = new System.Drawing.Point(403, 19);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(213, 140);
+            this.groupBox14.TabIndex = 2;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Proportions";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(106, 98);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(36, 13);
+            this.label31.TabIndex = 9;
+            this.label31.Text = "Water";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(103, 57);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(38, 13);
+            this.label30.TabIndex = 8;
+            this.label30.Text = "Honey";
+            // 
+            // meadWaterResult
+            // 
+            this.meadWaterResult.Enabled = false;
+            this.meadWaterResult.Location = new System.Drawing.Point(106, 113);
+            this.meadWaterResult.Name = "meadWaterResult";
+            this.meadWaterResult.Size = new System.Drawing.Size(100, 20);
+            this.meadWaterResult.TabIndex = 7;
+            // 
+            // meadHoneyResult
+            // 
+            this.meadHoneyResult.Enabled = false;
+            this.meadHoneyResult.Location = new System.Drawing.Point(106, 71);
+            this.meadHoneyResult.Name = "meadHoneyResult";
+            this.meadHoneyResult.Size = new System.Drawing.Size(100, 20);
+            this.meadHoneyResult.TabIndex = 6;
+            // 
+            // honWatTotCalc
+            // 
+            this.honWatTotCalc.Location = new System.Drawing.Point(7, 91);
+            this.honWatTotCalc.Name = "honWatTotCalc";
+            this.honWatTotCalc.Size = new System.Drawing.Size(75, 43);
+            this.honWatTotCalc.TabIndex = 5;
+            this.honWatTotCalc.Text = "Calculate";
+            this.honWatTotCalc.UseVisualStyleBackColor = true;
+            this.honWatTotCalc.Click += new System.EventHandler(this.honWatTotCalc_Click);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(103, 16);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(68, 13);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "Total volume";
+            // 
+            // totMeadVol
+            // 
+            this.totMeadVol.Location = new System.Drawing.Point(106, 34);
+            this.totMeadVol.Name = "totMeadVol";
+            this.totMeadVol.Size = new System.Drawing.Size(100, 20);
+            this.totMeadVol.TabIndex = 3;
+            // 
+            // trojniak3
+            // 
+            this.trojniak3.AutoSize = true;
+            this.trojniak3.Location = new System.Drawing.Point(7, 66);
+            this.trojniak3.Name = "trojniak3";
+            this.trojniak3.Size = new System.Drawing.Size(63, 17);
+            this.trojniak3.TabIndex = 2;
+            this.trojniak3.TabStop = true;
+            this.trojniak3.Text = "Trojniak";
+            this.trojniak3.UseVisualStyleBackColor = true;
+            // 
+            // dwojniak3
+            // 
+            this.dwojniak3.AutoSize = true;
+            this.dwojniak3.Location = new System.Drawing.Point(7, 44);
+            this.dwojniak3.Name = "dwojniak3";
+            this.dwojniak3.Size = new System.Drawing.Size(69, 17);
+            this.dwojniak3.TabIndex = 1;
+            this.dwojniak3.TabStop = true;
+            this.dwojniak3.Text = "Dwojniak";
+            this.dwojniak3.UseVisualStyleBackColor = true;
+            // 
+            // poltorak3
+            // 
+            this.poltorak3.AutoSize = true;
+            this.poltorak3.Location = new System.Drawing.Point(7, 20);
+            this.poltorak3.Name = "poltorak3";
+            this.poltorak3.Size = new System.Drawing.Size(64, 17);
+            this.poltorak3.TabIndex = 0;
+            this.poltorak3.TabStop = true;
+            this.poltorak3.Text = "Poltorak";
+            this.poltorak3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.calcWaterHon);
+            this.groupBox13.Controls.Add(this.label28);
+            this.groupBox13.Controls.Add(this.waterHonResult);
+            this.groupBox13.Controls.Add(this.honwatervol);
+            this.groupBox13.Controls.Add(this.trojniak2);
+            this.groupBox13.Controls.Add(this.dwojniak2);
+            this.groupBox13.Controls.Add(this.poltorak2);
+            this.groupBox13.Location = new System.Drawing.Point(201, 16);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(196, 143);
+            this.groupBox13.TabIndex = 1;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Honey required";
+            // 
+            // calcWaterHon
+            // 
+            this.calcWaterHon.Location = new System.Drawing.Point(6, 113);
+            this.calcWaterHon.Name = "calcWaterHon";
+            this.calcWaterHon.Size = new System.Drawing.Size(75, 23);
+            this.calcWaterHon.TabIndex = 6;
+            this.calcWaterHon.Text = "Calculate";
+            this.calcWaterHon.UseVisualStyleBackColor = true;
+            this.calcWaterHon.Click += new System.EventHandler(this.calcWaterHon_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(7, 94);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(73, 13);
+            this.label28.TabIndex = 5;
+            this.label28.Text = "Water volume";
+            // 
+            // waterHonResult
+            // 
+            this.waterHonResult.Enabled = false;
+            this.waterHonResult.Location = new System.Drawing.Point(87, 115);
+            this.waterHonResult.Name = "waterHonResult";
+            this.waterHonResult.Size = new System.Drawing.Size(100, 20);
+            this.waterHonResult.TabIndex = 4;
+            // 
+            // honwatervol
+            // 
+            this.honwatervol.Location = new System.Drawing.Point(87, 91);
+            this.honwatervol.Name = "honwatervol";
+            this.honwatervol.Size = new System.Drawing.Size(100, 20);
+            this.honwatervol.TabIndex = 3;
+            // 
+            // trojniak2
+            // 
+            this.trojniak2.AutoSize = true;
+            this.trojniak2.Location = new System.Drawing.Point(6, 67);
+            this.trojniak2.Name = "trojniak2";
+            this.trojniak2.Size = new System.Drawing.Size(63, 17);
+            this.trojniak2.TabIndex = 2;
+            this.trojniak2.TabStop = true;
+            this.trojniak2.Text = "Trojniak";
+            this.trojniak2.UseVisualStyleBackColor = true;
+            // 
+            // dwojniak2
+            // 
+            this.dwojniak2.AutoSize = true;
+            this.dwojniak2.Location = new System.Drawing.Point(6, 42);
+            this.dwojniak2.Name = "dwojniak2";
+            this.dwojniak2.Size = new System.Drawing.Size(69, 17);
+            this.dwojniak2.TabIndex = 1;
+            this.dwojniak2.TabStop = true;
+            this.dwojniak2.Text = "Dwojniak";
+            this.dwojniak2.UseVisualStyleBackColor = true;
+            // 
+            // poltorak2
+            // 
+            this.poltorak2.AutoSize = true;
+            this.poltorak2.Location = new System.Drawing.Point(6, 19);
+            this.poltorak2.Name = "poltorak2";
+            this.poltorak2.Size = new System.Drawing.Size(64, 17);
+            this.poltorak2.TabIndex = 0;
+            this.poltorak2.TabStop = true;
+            this.poltorak2.Text = "Poltorak";
+            this.poltorak2.UseVisualStyleBackColor = true;
+            // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.honeyW);
@@ -787,6 +974,7 @@ namespace AlkoCalc
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox15);
             this.tabPage2.Controls.Add(this.groupBox7);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox5);
@@ -806,7 +994,7 @@ namespace AlkoCalc
             this.groupBox7.Controls.Add(this.gravityInBox);
             this.groupBox7.Controls.Add(this.label21);
             this.groupBox7.Controls.Add(this.convBtn);
-            this.groupBox7.Location = new System.Drawing.Point(454, 219);
+            this.groupBox7.Location = new System.Drawing.Point(622, 219);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(200, 106);
             this.groupBox7.TabIndex = 3;
@@ -864,7 +1052,7 @@ namespace AlkoCalc
             this.groupBox4.Controls.Add(this.calculateTemp);
             this.groupBox4.Controls.Add(this.label20);
             this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Location = new System.Drawing.Point(229, 218);
+            this.groupBox4.Location = new System.Drawing.Point(416, 218);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 107);
             this.groupBox4.TabIndex = 2;
@@ -1331,6 +1519,17 @@ namespace AlkoCalc
             this.openedProjectTab.Text = "Open project";
             this.openedProjectTab.UseVisualStyleBackColor = true;
             // 
+            // lbxBtn
+            // 
+            this.lbxBtn.Location = new System.Drawing.Point(772, 393);
+            this.lbxBtn.Name = "lbxBtn";
+            this.lbxBtn.Size = new System.Drawing.Size(131, 23);
+            this.lbxBtn.TabIndex = 2;
+            this.lbxBtn.Text = "Generate label";
+            this.lbxBtn.UseVisualStyleBackColor = true;
+            this.lbxBtn.Visible = false;
+            this.lbxBtn.Click += new System.EventHandler(this.lbxBtn_Click);
+            // 
             // sprjTF
             // 
             this.sprjTF.Location = new System.Drawing.Point(909, 393);
@@ -1352,350 +1551,70 @@ namespace AlkoCalc
             this.loadPrFF.UseVisualStyleBackColor = true;
             this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
             // 
-
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.calcWaterHon);
-            this.groupBox13.Controls.Add(this.label28);
-            this.groupBox13.Controls.Add(this.waterHonResult);
-            this.groupBox13.Controls.Add(this.honwatervol);
-            this.groupBox13.Controls.Add(this.trojniak2);
-            this.groupBox13.Controls.Add(this.dwojniak2);
-            this.groupBox13.Controls.Add(this.poltorak2);
-            this.groupBox13.Location = new System.Drawing.Point(201, 16);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(196, 143);
-            this.groupBox13.TabIndex = 1;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Honey required";
-            // 
-            // poltorak2
-            // 
-            this.poltorak2.AutoSize = true;
-            this.poltorak2.Location = new System.Drawing.Point(6, 19);
-            this.poltorak2.Name = "poltorak2";
-            this.poltorak2.Size = new System.Drawing.Size(64, 17);
-            this.poltorak2.TabIndex = 0;
-            this.poltorak2.TabStop = true;
-            this.poltorak2.Text = "Poltorak";
-            this.poltorak2.UseVisualStyleBackColor = true;
-            // 
-            // dwojniak2
-            // 
-            this.dwojniak2.AutoSize = true;
-            this.dwojniak2.Location = new System.Drawing.Point(6, 42);
-            this.dwojniak2.Name = "dwojniak2";
-            this.dwojniak2.Size = new System.Drawing.Size(69, 17);
-            this.dwojniak2.TabIndex = 1;
-            this.dwojniak2.TabStop = true;
-            this.dwojniak2.Text = "Dwojniak";
-            this.dwojniak2.UseVisualStyleBackColor = true;
-            // 
-            // trojniak2
-            // 
-            this.trojniak2.AutoSize = true;
-            this.trojniak2.Location = new System.Drawing.Point(6, 67);
-            this.trojniak2.Name = "trojniak2";
-            this.trojniak2.Size = new System.Drawing.Size(63, 17);
-            this.trojniak2.TabIndex = 2;
-            this.trojniak2.TabStop = true;
-            this.trojniak2.Text = "Trojniak";
-            this.trojniak2.UseVisualStyleBackColor = true;
-            // 
-            // honwatervol
-            // 
-            this.honwatervol.Location = new System.Drawing.Point(87, 91);
-            this.honwatervol.Name = "honwatervol";
-            this.honwatervol.Size = new System.Drawing.Size(100, 20);
-            this.honwatervol.TabIndex = 3;
-            // 
-            // waterHonResult
-            // 
-            this.waterHonResult.Enabled = false;
-            this.waterHonResult.Location = new System.Drawing.Point(87, 115);
-            this.waterHonResult.Name = "waterHonResult";
-            this.waterHonResult.Size = new System.Drawing.Size(100, 20);
-            this.waterHonResult.TabIndex = 4;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(7, 94);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(73, 13);
-            this.label28.TabIndex = 5;
-            this.label28.Text = "Water volume";
-            // 
-            // calcWaterHon
-            // 
-            this.calcWaterHon.Location = new System.Drawing.Point(6, 113);
-            this.calcWaterHon.Name = "calcWaterHon";
-            this.calcWaterHon.Size = new System.Drawing.Size(75, 23);
-            this.calcWaterHon.TabIndex = 6;
-            this.calcWaterHon.Text = "Calculate";
-            this.calcWaterHon.UseVisualStyleBackColor = true;
-            this.calcWaterHon.Click += new System.EventHandler(this.calcWaterHon_Click);
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.label31);
-            this.groupBox14.Controls.Add(this.label30);
-            this.groupBox14.Controls.Add(this.meadWaterResult);
-            this.groupBox14.Controls.Add(this.meadHoneyResult);
-            this.groupBox14.Controls.Add(this.honWatTotCalc);
-            this.groupBox14.Controls.Add(this.label29);
-            this.groupBox14.Controls.Add(this.totMeadVol);
-            this.groupBox14.Controls.Add(this.trojniak3);
-            this.groupBox14.Controls.Add(this.dwojniak3);
-            this.groupBox14.Controls.Add(this.poltorak3);
-            this.groupBox14.Location = new System.Drawing.Point(403, 19);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(213, 140);
-            this.groupBox14.TabIndex = 2;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Proportions";
-            // 
-            // poltorak3
-            // 
-            this.poltorak3.AutoSize = true;
-            this.poltorak3.Location = new System.Drawing.Point(7, 20);
-            this.poltorak3.Name = "poltorak3";
-            this.poltorak3.Size = new System.Drawing.Size(64, 17);
-            this.poltorak3.TabIndex = 0;
-            this.poltorak3.TabStop = true;
-            this.poltorak3.Text = "Poltorak";
-            this.poltorak3.UseVisualStyleBackColor = true;
-            // 
-            // dwojniak3
-            // 
-            this.dwojniak3.AutoSize = true;
-            this.dwojniak3.Location = new System.Drawing.Point(7, 44);
-            this.dwojniak3.Name = "dwojniak3";
-            this.dwojniak3.Size = new System.Drawing.Size(69, 17);
-            this.dwojniak3.TabIndex = 1;
-            this.dwojniak3.TabStop = true;
-            this.dwojniak3.Text = "Dwojniak";
-            this.dwojniak3.UseVisualStyleBackColor = true;
-            // 
-            // trojniak3
-            // 
-            this.trojniak3.AutoSize = true;
-            this.trojniak3.Location = new System.Drawing.Point(7, 66);
-            this.trojniak3.Name = "trojniak3";
-            this.trojniak3.Size = new System.Drawing.Size(63, 17);
-            this.trojniak3.TabIndex = 2;
-            this.trojniak3.TabStop = true;
-            this.trojniak3.Text = "Trojniak";
-            this.trojniak3.UseVisualStyleBackColor = true;
-            // 
-            // totMeadVol
-            // 
-            this.totMeadVol.Location = new System.Drawing.Point(106, 34);
-            this.totMeadVol.Name = "totMeadVol";
-            this.totMeadVol.Size = new System.Drawing.Size(100, 20);
-            this.totMeadVol.TabIndex = 3;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(103, 16);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(68, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "Total volume";
-            // 
-            // honWatTotCalc
-            // 
-            this.honWatTotCalc.Location = new System.Drawing.Point(7, 91);
-            this.honWatTotCalc.Name = "honWatTotCalc";
-            this.honWatTotCalc.Size = new System.Drawing.Size(75, 43);
-            this.honWatTotCalc.TabIndex = 5;
-            this.honWatTotCalc.Text = "Calculate";
-            this.honWatTotCalc.UseVisualStyleBackColor = true;
-            this.honWatTotCalc.Click += new System.EventHandler(this.honWatTotCalc_Click);
-            // 
-            // meadHoneyResult
-            // 
-            this.meadHoneyResult.Enabled = false;
-            this.meadHoneyResult.Location = new System.Drawing.Point(106, 71);
-            this.meadHoneyResult.Name = "meadHoneyResult";
-            this.meadHoneyResult.Size = new System.Drawing.Size(100, 20);
-            this.meadHoneyResult.TabIndex = 6;
-            // 
-            // meadWaterResult
-            // 
-            this.meadWaterResult.Enabled = false;
-            this.meadWaterResult.Location = new System.Drawing.Point(106, 113);
-            this.meadWaterResult.Name = "meadWaterResult";
-            this.meadWaterResult.Size = new System.Drawing.Size(100, 20);
-            this.meadWaterResult.TabIndex = 7;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(103, 57);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(38, 13);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "Honey";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(106, 98);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(36, 13);
-            this.label31.TabIndex = 9;
-            this.label31.Text = "Water";
-
-            // lbxBtn
-            // 
-            this.lbxBtn.Location = new System.Drawing.Point(772, 393);
-            this.lbxBtn.Name = "lbxBtn";
-            this.lbxBtn.Size = new System.Drawing.Size(131, 23);
-            this.lbxBtn.TabIndex = 2;
-            this.lbxBtn.Text = "Generate label";
-            this.lbxBtn.UseVisualStyleBackColor = true;
-            this.lbxBtn.Visible = false;
-            this.lbxBtn.Click += new System.EventHandler(this.lbxBtn_Click);
-            // 
-            // loadPrFF
-            // 
-            this.loadPrFF.Location = new System.Drawing.Point(909, 393);
-            this.loadPrFF.Name = "loadPrFF";
-            this.loadPrFF.Size = new System.Drawing.Size(159, 23);
-            this.loadPrFF.TabIndex = 0;
-            this.loadPrFF.Text = "Load project from file";
-            this.loadPrFF.UseVisualStyleBackColor = true;
-            this.loadPrFF.Click += new System.EventHandler(this.loadPrFF_Click);
-            // 
-            // unitsBtn
-            // 
-            this.unitsBtn.Location = new System.Drawing.Point(6, 97);
-            this.unitsBtn.Name = "unitsBtn";
-            this.unitsBtn.Size = new System.Drawing.Size(75, 23);
-            this.unitsBtn.TabIndex = 0;
-            this.unitsBtn.Text = "Calculate";
-            this.unitsBtn.UseVisualStyleBackColor = true;
-            this.unitsBtn.Click += new System.EventHandler(this.unitsBtn_Click);
-            // 
-            // abvUnits
-            // 
-            this.abvUnits.Location = new System.Drawing.Point(94, 29);
-            this.abvUnits.Name = "abvUnits";
-            this.abvUnits.Size = new System.Drawing.Size(100, 20);
-            this.abvUnits.TabIndex = 1;
-            // 
-            // volumeUnits
-            // 
-            this.volumeUnits.Location = new System.Drawing.Point(94, 59);
-            this.volumeUnits.Name = "volumeUnits";
-            this.volumeUnits.Size = new System.Drawing.Size(100, 20);
-            this.volumeUnits.TabIndex = 2;
-            // 
-            // unitResult
-            // 
-            this.unitResult.Location = new System.Drawing.Point(94, 99);
-            this.unitResult.Name = "unitResult";
-            this.unitResult.Size = new System.Drawing.Size(100, 20);
-            this.unitResult.TabIndex = 3;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(53, 32);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(28, 13);
-            this.label23.TabIndex = 4;
-            this.label23.Text = "ABV";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(41, 62);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(42, 13);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Volume";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.unitsBtn);
-            this.groupBox9.Controls.Add(this.abvUnits);
-            this.groupBox9.Controls.Add(this.label23);
-            this.groupBox9.Controls.Add(this.label24);
-            this.groupBox9.Controls.Add(this.volumeUnits);
-            this.groupBox9.Controls.Add(this.unitResult);
-            this.groupBox9.Location = new System.Drawing.Point(13, 24);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(200, 126);
-            this.groupBox9.TabIndex = 6;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Irish units";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.resultUkUm);
-            this.groupBox10.Controls.Add(this.volUkUn);
-            this.groupBox10.Controls.Add(this.abvUkUn);
-            this.groupBox10.Controls.Add(this.label26);
-            this.groupBox10.Controls.Add(this.label25);
-            this.groupBox10.Controls.Add(this.ukUnitsBtn);
-            this.groupBox10.Location = new System.Drawing.Point(219, 24);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(200, 126);
-            this.groupBox10.TabIndex = 7;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "UK units";
-            // 
-            // ukUnitsBtn
-            // 
-            this.ukUnitsBtn.Location = new System.Drawing.Point(6, 96);
-            this.ukUnitsBtn.Name = "ukUnitsBtn";
-            this.ukUnitsBtn.Size = new System.Drawing.Size(75, 23);
-            this.ukUnitsBtn.TabIndex = 0;
-            this.ukUnitsBtn.Text = "Calculate";
-            this.ukUnitsBtn.UseVisualStyleBackColor = true;
-            this.ukUnitsBtn.Click += new System.EventHandler(this.ukUnitsBtn_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(53, 36);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(28, 13);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "ABV";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(39, 66);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(42, 13);
-            this.label26.TabIndex = 6;
-            this.label26.Text = "Volume";
-            // 
-            // abvUkUn
-            // 
-            this.abvUkUn.Location = new System.Drawing.Point(87, 32);
-            this.abvUkUn.Name = "abvUkUn";
-            this.abvUkUn.Size = new System.Drawing.Size(100, 20);
-            this.abvUkUn.TabIndex = 7;
-            // 
-            // volUkUn
-            // 
-            this.volUkUn.Location = new System.Drawing.Point(87, 66);
-            this.volUkUn.Name = "volUkUn";
-            this.volUkUn.Size = new System.Drawing.Size(100, 20);
-            this.volUkUn.TabIndex = 8;
-            // 
-            // resultUkUm
-            // 
-            this.resultUkUm.Location = new System.Drawing.Point(87, 97);
-            this.resultUkUm.Name = "resultUkUm";
-            this.resultUkUm.Size = new System.Drawing.Size(100, 20);
-            this.resultUkUm.TabIndex = 9;
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.sgrsltbx);
+            this.groupBox15.Controls.Add(this.sgclcbtn);
+            this.groupBox15.Controls.Add(this.sgfngv);
+            this.groupBox15.Controls.Add(this.sgabvwntd);
+            this.groupBox15.Controls.Add(this.label33);
+            this.groupBox15.Controls.Add(this.label32);
+            this.groupBox15.Location = new System.Drawing.Point(210, 218);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(200, 107);
+            this.groupBox15.TabIndex = 4;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Starting gravity";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 23);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(66, 13);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "ABV wanted";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(3, 49);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(66, 13);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "Finishing SG";
+            // 
+            // sgabvwntd
+            // 
+            this.sgabvwntd.Location = new System.Drawing.Point(76, 18);
+            this.sgabvwntd.Name = "sgabvwntd";
+            this.sgabvwntd.Size = new System.Drawing.Size(100, 20);
+            this.sgabvwntd.TabIndex = 2;
+            // 
+            // sgfngv
+            // 
+            this.sgfngv.Location = new System.Drawing.Point(76, 45);
+            this.sgfngv.Name = "sgfngv";
+            this.sgfngv.Size = new System.Drawing.Size(100, 20);
+            this.sgfngv.TabIndex = 3;
+            // 
+            // sgclcbtn
+            // 
+            this.sgclcbtn.Location = new System.Drawing.Point(7, 77);
+            this.sgclcbtn.Name = "sgclcbtn";
+            this.sgclcbtn.Size = new System.Drawing.Size(75, 23);
+            this.sgclcbtn.TabIndex = 4;
+            this.sgclcbtn.Text = "Calculate";
+            this.sgclcbtn.UseVisualStyleBackColor = true;
+            this.sgclcbtn.Click += new System.EventHandler(this.sgclcbtn_Click);
+            // 
+            // sgrsltbx
+            // 
+            this.sgrsltbx.Enabled = false;
+            this.sgrsltbx.Location = new System.Drawing.Point(89, 80);
+            this.sgrsltbx.Name = "sgrsltbx";
+            this.sgrsltbx.Size = new System.Drawing.Size(100, 20);
+            this.sgrsltbx.TabIndex = 5;
             // 
             // GUI
             // 
@@ -1718,6 +1637,10 @@ namespace AlkoCalc
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -1741,10 +1664,8 @@ namespace AlkoCalc
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
             this.openedProjectTab.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1887,6 +1808,13 @@ namespace AlkoCalc
         private System.Windows.Forms.RadioButton dwojniak3;
         private System.Windows.Forms.RadioButton poltorak3;
         private System.Windows.Forms.Button lbxBtn;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TextBox sgrsltbx;
+        private System.Windows.Forms.Button sgclcbtn;
+        private System.Windows.Forms.TextBox sgfngv;
+        private System.Windows.Forms.TextBox sgabvwntd;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
     }
 }
 
