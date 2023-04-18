@@ -203,5 +203,50 @@ namespace AlkoCalc
             return result;
         }
     }
+
+    class AlcoMass : Calculator
+    {
+        decimal volume, abv;
+        public AlcoMass(decimal volume, decimal abv)
+        {
+            this.volume = volume;
+            this.abv = abv;
+        }
+
+        public override decimal Calculate()
+        {
+            result = (volume/1000) * (abv / 100) * 789;
+            return result;
+        }
+    }
+
+    class BACCalculator : Calculator
+    {
+        decimal mass;
+        decimal weight;
+        decimal time;
+        decimal bwr;
+        readonly private decimal metabolism = 0.017m;
+
+        public BACCalculator(decimal mass, decimal weight,
+            decimal time, decimal bwr)
+        {
+            this.mass = mass;
+            this.weight = weight;
+            this.time = time;
+            if (bwr == -1m)
+                this.bwr = 0.68m; // man
+            else if (bwr == -2m)
+                this.bwr = 0.55m; // woman
+            else
+                this.bwr = bwr;
+        }
+
+        public override decimal Calculate()
+        {
+            result = ((mass / 100) / (bwr * weight)) * 100m - (metabolism * time);
+            return result;
+        }
+    }
 }
 

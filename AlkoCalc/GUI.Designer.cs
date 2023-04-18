@@ -153,6 +153,31 @@ namespace AlkoCalc
             this.numberOfDrinksBtn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.numberOFDrinks = new System.Windows.Forms.TextBox();
+            this.bacTab = new System.Windows.Forms.TabPage();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.timeBAC = new System.Windows.Forms.TextBox();
+            this.weightBac = new System.Windows.Forms.TextBox();
+            this.alcMassBac = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.bacResult = new System.Windows.Forms.TextBox();
+            this.calculateBAC = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.custBWR = new System.Windows.Forms.TextBox();
+            this.customBwr = new System.Windows.Forms.RadioButton();
+            this.womanBwr = new System.Windows.Forms.RadioButton();
+            this.manBwr = new System.Windows.Forms.RadioButton();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.massCalculateBtn = new System.Windows.Forms.Button();
+            this.label36 = new System.Windows.Forms.Label();
+            this.resultMassBox = new System.Windows.Forms.TextBox();
+            this.abvMassBox = new System.Windows.Forms.TextBox();
+            this.massVolBox = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.notes = new System.Windows.Forms.TabPage();
             this.newNote = new System.Windows.Forms.Button();
             this.projectTab = new System.Windows.Forms.TabPage();
@@ -192,6 +217,9 @@ namespace AlkoCalc
             this.startingGravityBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.bacTab.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.notes.SuspendLayout();
             this.projectTab.SuspendLayout();
             this.openedProjectTab.SuspendLayout();
@@ -521,6 +549,7 @@ namespace AlkoCalc
             this.tabs.Controls.Add(this.tabPage1);
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage3);
+            this.tabs.Controls.Add(this.bacTab);
             this.tabs.Controls.Add(this.notes);
             this.tabs.Controls.Add(this.projectTab);
             this.tabs.Controls.Add(this.openedProjectTab);
@@ -1419,6 +1448,251 @@ namespace AlkoCalc
             this.numberOFDrinks.Size = new System.Drawing.Size(100, 20);
             this.numberOFDrinks.TabIndex = 0;
             // 
+            // bacTab
+            // 
+            this.bacTab.Controls.Add(this.groupBox17);
+            this.bacTab.Controls.Add(this.groupBox16);
+            this.bacTab.Location = new System.Drawing.Point(4, 22);
+            this.bacTab.Name = "bacTab";
+            this.bacTab.Padding = new System.Windows.Forms.Padding(3);
+            this.bacTab.Size = new System.Drawing.Size(1076, 425);
+            this.bacTab.TabIndex = 6;
+            this.bacTab.Text = "BAC";
+            this.bacTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.timeBAC);
+            this.groupBox17.Controls.Add(this.weightBac);
+            this.groupBox17.Controls.Add(this.alcMassBac);
+            this.groupBox17.Controls.Add(this.label42);
+            this.groupBox17.Controls.Add(this.bacResult);
+            this.groupBox17.Controls.Add(this.calculateBAC);
+            this.groupBox17.Controls.Add(this.label41);
+            this.groupBox17.Controls.Add(this.custBWR);
+            this.groupBox17.Controls.Add(this.customBwr);
+            this.groupBox17.Controls.Add(this.womanBwr);
+            this.groupBox17.Controls.Add(this.manBwr);
+            this.groupBox17.Controls.Add(this.label40);
+            this.groupBox17.Controls.Add(this.label39);
+            this.groupBox17.Controls.Add(this.label38);
+            this.groupBox17.Controls.Add(this.label37);
+            this.groupBox17.Location = new System.Drawing.Point(9, 7);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(519, 409);
+            this.groupBox17.TabIndex = 1;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Blood alcohol content";
+            // 
+            // timeBAC
+            // 
+            this.timeBAC.Location = new System.Drawing.Point(101, 156);
+            this.timeBAC.Name = "timeBAC";
+            this.timeBAC.Size = new System.Drawing.Size(100, 20);
+            this.timeBAC.TabIndex = 14;
+            // 
+            // weightBac
+            // 
+            this.weightBac.Location = new System.Drawing.Point(101, 130);
+            this.weightBac.Name = "weightBac";
+            this.weightBac.Size = new System.Drawing.Size(100, 20);
+            this.weightBac.TabIndex = 13;
+            // 
+            // alcMassBac
+            // 
+            this.alcMassBac.Location = new System.Drawing.Point(101, 104);
+            this.alcMassBac.Name = "alcMassBac";
+            this.alcMassBac.Size = new System.Drawing.Size(100, 20);
+            this.alcMassBac.TabIndex = 12;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(236, 331);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(37, 13);
+            this.label42.TabIndex = 11;
+            this.label42.Text = "Result";
+            // 
+            // bacResult
+            // 
+            this.bacResult.Enabled = false;
+            this.bacResult.Location = new System.Drawing.Point(279, 328);
+            this.bacResult.Name = "bacResult";
+            this.bacResult.Size = new System.Drawing.Size(101, 20);
+            this.bacResult.TabIndex = 10;
+            // 
+            // calculateBAC
+            // 
+            this.calculateBAC.Location = new System.Drawing.Point(7, 263);
+            this.calculateBAC.Name = "calculateBAC";
+            this.calculateBAC.Size = new System.Drawing.Size(506, 59);
+            this.calculateBAC.TabIndex = 9;
+            this.calculateBAC.Text = "Calculate";
+            this.calculateBAC.UseVisualStyleBackColor = true;
+            this.calculateBAC.Click += new System.EventHandler(this.calculateBAC_Click);
+            // 
+            // label41
+            // 
+            this.label41.Location = new System.Drawing.Point(6, 25);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(507, 46);
+            this.label41.TabIndex = 8;
+            this.label41.Text = "WARNING: This calculator gives estimate only and should not be used for any legal" +
+    " purpouses including fit-to-drive testing. Only brethalyser and blood test can g" +
+    "ive accurate results";
+            // 
+            // custBWR
+            // 
+            this.custBWR.Location = new System.Drawing.Point(173, 228);
+            this.custBWR.Name = "custBWR";
+            this.custBWR.Size = new System.Drawing.Size(100, 20);
+            this.custBWR.TabIndex = 7;
+            // 
+            // customBwr
+            // 
+            this.customBwr.AutoSize = true;
+            this.customBwr.Location = new System.Drawing.Point(110, 228);
+            this.customBwr.Name = "customBwr";
+            this.customBwr.Size = new System.Drawing.Size(60, 17);
+            this.customBwr.TabIndex = 6;
+            this.customBwr.TabStop = true;
+            this.customBwr.Text = "Custom";
+            this.customBwr.UseVisualStyleBackColor = true;
+            // 
+            // womanBwr
+            // 
+            this.womanBwr.AutoSize = true;
+            this.womanBwr.Location = new System.Drawing.Point(110, 205);
+            this.womanBwr.Name = "womanBwr";
+            this.womanBwr.Size = new System.Drawing.Size(62, 17);
+            this.womanBwr.TabIndex = 5;
+            this.womanBwr.TabStop = true;
+            this.womanBwr.Text = "Woman";
+            this.womanBwr.UseVisualStyleBackColor = true;
+            // 
+            // manBwr
+            // 
+            this.manBwr.AutoSize = true;
+            this.manBwr.Location = new System.Drawing.Point(110, 182);
+            this.manBwr.Name = "manBwr";
+            this.manBwr.Size = new System.Drawing.Size(46, 17);
+            this.manBwr.TabIndex = 4;
+            this.manBwr.TabStop = true;
+            this.manBwr.Text = "Man";
+            this.manBwr.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(6, 184);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(88, 13);
+            this.label40.TabIndex = 3;
+            this.label40.Text = "Body/Water ratio";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(64, 159);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(30, 13);
+            this.label39.TabIndex = 2;
+            this.label39.Text = "Time";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(53, 133);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(41, 13);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Weight";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(26, 111);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(69, 13);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "Alcohol mass";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.massCalculateBtn);
+            this.groupBox16.Controls.Add(this.label36);
+            this.groupBox16.Controls.Add(this.resultMassBox);
+            this.groupBox16.Controls.Add(this.abvMassBox);
+            this.groupBox16.Controls.Add(this.massVolBox);
+            this.groupBox16.Controls.Add(this.label35);
+            this.groupBox16.Controls.Add(this.label34);
+            this.groupBox16.Location = new System.Drawing.Point(534, 7);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(267, 129);
+            this.groupBox16.TabIndex = 0;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Alcohol mass";
+            // 
+            // massCalculateBtn
+            // 
+            this.massCalculateBtn.Location = new System.Drawing.Point(170, 34);
+            this.massCalculateBtn.Name = "massCalculateBtn";
+            this.massCalculateBtn.Size = new System.Drawing.Size(87, 64);
+            this.massCalculateBtn.TabIndex = 6;
+            this.massCalculateBtn.Text = "Calculate";
+            this.massCalculateBtn.UseVisualStyleBackColor = true;
+            this.massCalculateBtn.Click += new System.EventHandler(this.massCalculateBtn_Click);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(11, 81);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(37, 13);
+            this.label36.TabIndex = 5;
+            this.label36.Text = "Result";
+            // 
+            // resultMassBox
+            // 
+            this.resultMassBox.Enabled = false;
+            this.resultMassBox.Location = new System.Drawing.Point(54, 78);
+            this.resultMassBox.Name = "resultMassBox";
+            this.resultMassBox.Size = new System.Drawing.Size(100, 20);
+            this.resultMassBox.TabIndex = 4;
+            // 
+            // abvMassBox
+            // 
+            this.abvMassBox.Location = new System.Drawing.Point(54, 51);
+            this.abvMassBox.Name = "abvMassBox";
+            this.abvMassBox.Size = new System.Drawing.Size(100, 20);
+            this.abvMassBox.TabIndex = 3;
+            // 
+            // massVolBox
+            // 
+            this.massVolBox.Location = new System.Drawing.Point(54, 31);
+            this.massVolBox.Name = "massVolBox";
+            this.massVolBox.Size = new System.Drawing.Size(100, 20);
+            this.massVolBox.TabIndex = 2;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(22, 54);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(26, 13);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "Abv";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 34);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(42, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Volume";
+            // 
             // notes
             // 
             this.notes.Controls.Add(this.newNote);
@@ -1662,6 +1936,11 @@ namespace AlkoCalc
             this.tabPage3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.bacTab.ResumeLayout(false);
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
             this.notes.ResumeLayout(false);
             this.projectTab.ResumeLayout(false);
             this.projectTab.PerformLayout();
@@ -1815,6 +2094,31 @@ namespace AlkoCalc
         private System.Windows.Forms.TextBox sgabvwntd;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TabPage bacTab;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.Button massCalculateBtn;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox resultMassBox;
+        private System.Windows.Forms.TextBox abvMassBox;
+        private System.Windows.Forms.TextBox massVolBox;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox timeBAC;
+        private System.Windows.Forms.TextBox weightBac;
+        private System.Windows.Forms.TextBox alcMassBac;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox bacResult;
+        private System.Windows.Forms.Button calculateBAC;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox custBWR;
+        private System.Windows.Forms.RadioButton customBwr;
+        private System.Windows.Forms.RadioButton womanBwr;
+        private System.Windows.Forms.RadioButton manBwr;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
     }
 }
 

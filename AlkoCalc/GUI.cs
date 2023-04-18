@@ -441,5 +441,26 @@ namespace AlkoCalc
                 decimal.Parse(sgfngv.Text));
             doCalculation(atg, sgrsltbx);
         }
+
+        private void massCalculateBtn_Click(object sender, EventArgs e)
+        {
+            AlcoMass am = new AlcoMass(decimal.Parse(massVolBox.Text),
+                decimal.Parse(abvMassBox.Text));
+            doCalculation(am, resultMassBox);
+        }
+
+        private void calculateBAC_Click(object sender, EventArgs e)
+        {
+            decimal bwr;
+            if (manBwr.Checked)
+                bwr = -1m;
+            else if (womanBwr.Checked)
+                bwr = -2m;
+            else
+                bwr = decimal.Parse(custBWR.Text);
+            BACCalculator bac = new BACCalculator(decimal.Parse(alcMassBac.Text),
+                decimal.Parse(weightBac.Text), decimal.Parse(timeBAC.Text), bwr);
+            doCalculation(bac, bacResult);
+        }
     }
 }
